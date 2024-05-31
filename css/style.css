@@ -264,6 +264,25 @@
     background: linear-gradient(rgba(53, 53, 53, .7), rgba(53, 53, 53, .7)), url(../img/banner/3.png) center center no-repeat;
     background-size: cover;
 }
+.about-header {
+    background: linear-gradient(rgba(53, 53, 53, .7), rgba(53, 53, 53, .7)), url(../img/about/about-us1.png) center center no-repeat;
+    background-size: cover;
+}
+
+.e-commerce-header {
+    background: linear-gradient(rgba(53, 53, 53, .7), rgba(53, 53, 53, .7)), url(../img/banner/13.png) center center no-repeat;
+    background-size: cover;
+}
+
+.beauty-header {
+    background: linear-gradient(rgba(53, 53, 53, .7), rgba(53, 53, 53, .7)), url(../img/banner/16.png) center center no-repeat;
+    background-size: cover;
+}
+
+.grocery-header {
+    background: linear-gradient(rgba(53, 53, 53, .7), rgba(53, 53, 53, .7)), url(../img/banner/8.png) center center no-repeat;
+    background-size: cover;
+}
 
 .breadcrumb-item + .breadcrumb-item::before {
     color: var(--light);
