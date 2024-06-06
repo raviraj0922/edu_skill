@@ -284,6 +284,36 @@
     background-size: cover;
 }
 
+.bridgeway-header {
+    background: linear-gradient(rgba(53, 53, 53, .7), rgba(53, 53, 53, .7)), url(../img/banner/2.png) center center no-repeat;
+    background-size: cover;
+}
+
+.convenience-header {
+    background: linear-gradient(rgba(53, 53, 53, .7), rgba(53, 53, 53, .7)), url(../img/banner/7.png) center center no-repeat;
+    background-size: cover;
+}
+
+.civic-header {
+    background: linear-gradient(rgba(53, 53, 53, .7), rgba(53, 53, 53, .7)), url(../img/banner/18.png) center center no-repeat;
+    background-size: cover;
+}
+
+.college-header {
+    background: linear-gradient(rgba(53, 53, 53, .7), rgba(53, 53, 53, .7)), url(../img/banner/6.png) center center no-repeat;
+    background-size: cover;
+}
+
+.graduate-header {
+    background: linear-gradient(rgba(53, 53, 53, .7), rgba(53, 53, 53, .7)), url(../img/banner/15.png) center center no-repeat;
+    background-size: cover;
+}
+
+.mba-header {
+    background: linear-gradient(rgba(53, 53, 53, .7), rgba(53, 53, 53, .7)), url(../img/banner/5.png) center center no-repeat;
+    background-size: cover;
+}
+
 .breadcrumb-item + .breadcrumb-item::before {
     color: var(--light);
 }
