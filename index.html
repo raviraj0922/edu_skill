@@ -547,7 +547,7 @@
                             <h1 class="display-5 mb-4">Join Us</h1>
                         </div>
                         <p class="mb-4 pb-2">Discover a thriving retail career with us! Join our network for updates on resources, events, training, job fairs, and more. Educators, students, retailers, and community leaders: we offer programs, mentoring, and job-ready graduates meeting industry standards. Let's work together to influence retail's trajectory.</p>
-                        <form>
+                        <form id="contactForm">
                             <div class="row g-3">
                                 <div class="col-12 col-sm-6">
                                     <input type="text" class="form-control border-0" placeholder="Your Name" style="height: 55px;">
@@ -575,6 +575,33 @@
                                 </div>
                             </div>
                         </form>
+                        <script>
+                            $(document).ready(function() {
+                                $('#contactForm').on('submit', function(e) {
+                                    e.preventDefault();
+                        
+                                    var formData = {
+                                        name: $('#name').val(),
+                                        email: $('#email').val(),
+                                        mobile: $('#mobile').val(),
+                                        category: $('#category').val(),
+                                        note: $('#note').val()
+                                    };
+                        
+                                    $.ajax({
+                                        type: 'POST',
+                                        url: 'forms/send_email.php',
+                                        data: formData,
+                                        success: function(response) {
+                                            alert('Message sent successfully');
+                                        },
+                                        error: function(error) {
+                                            alert('An error occurred. Please try again.');
+                                        }
+                                    });
+                                });
+                            });
+                        </script>
                     </div>
                 </div>
             </div>
@@ -774,6 +801,7 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </body>
 
 </html>
