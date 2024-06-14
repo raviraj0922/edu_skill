@@ -97,7 +97,7 @@
                         <a href="future-proof.html" class="dropdown-item">Future Proof</a> 
                     </div>
                 </div>
-                <a href="format.html" class="nav-item nav-link">Format</a>
+                <a href="r-career.html" class="nav-item nav-link">R-Career</a>
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Explore</a>
                     <div class="dropdown-menu fade-up m-0">
@@ -110,9 +110,9 @@
                         <a href="walk-IN.html" class="dropdown-item">Walk IN</a>
                     </div>
                 </div>
-                <!-- <a href="contact.html" class="nav-item nav-link">Contact</a> -->
+                <a href="registration.html" class="nav-item nav-link">Apply Now</a>
             </div>
-            <a href="" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Partner With Us<i class="fa fa-arrow-right ms-3"></i></a>
+            <a href="" class="btn btn-primary py-4 px-lg-3 d-none d-lg-block">Partner With Us<i class="fa fa-arrow-right ms-3"></i></a>
         </div>
     </nav>
     <!-- Navbar End -->
@@ -426,7 +426,7 @@
             <div class="section-title text-center">
                 <h1 class="display-5 mb-5">Fast-Track Programs</h1>
             </div>
-            <div class="row mt-n2 wow fadeInUp" data-wow-delay="0.1s">
+            <div class="row mt-n2 wow">
                 <!-- <div class="col-12 text-center">
                     <ul class="list-inline mb-5" id="portfolio-flters">
                         <li class="mx-2 active" data-filter="*">All</li>
@@ -436,7 +436,7 @@
                 </div> -->
             </div>
             <div class="row g-4 portfolio-container">
-                <div class="col-lg-4 col-md-6 portfolio-item first wow fadeInUp" data-wow-delay="0.1s">
+                <div class="col-lg-4 col-md-6 portfolio-item first wow">
                     <div class="rounded overflow-hidden">
                         <div class="position-relative overflow-hidden">
                             <img class="img-fluid w-100" src="img/portfolio-1.png" alt="">
@@ -451,7 +451,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 portfolio-item second wow fadeInUp" data-wow-delay="0.1s">
+                <div class="col-lg-4 col-md-6 portfolio-item second wow">
                     <div class="rounded overflow-hidden">
                         <div class="position-relative overflow-hidden">
                             <img class="img-fluid w-100" src="img/portfolio-2.png" alt="">
@@ -466,7 +466,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 portfolio-item first wow fadeInUp" data-wow-delay="0.1s">
+                <div class="col-lg-4 col-md-6 portfolio-item first wow">
                     <div class="rounded overflow-hidden">
                         <div class="position-relative overflow-hidden">
                             <img class="img-fluid w-100" src="img/portfolio-3.png" alt="">
@@ -481,7 +481,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 portfolio-item second wow fadeInUp" data-wow-delay="0.1s">
+                <div class="col-lg-4 col-md-6 portfolio-item second wow">
                     <div class="rounded overflow-hidden">
                         <div class="position-relative overflow-hidden">
                             <img class="img-fluid w-100" src="img/portfolio-4.png" alt="">
@@ -496,7 +496,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 portfolio-item first wow fadeInUp" data-wow-delay="0.1s">
+                <div class="col-lg-4 col-md-6 portfolio-item first wow">
                     <div class="rounded overflow-hidden">
                         <div class="position-relative overflow-hidden">
                             <img class="img-fluid w-100" src="img/portfolio-5.png" alt="">
@@ -511,7 +511,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 portfolio-item second wow fadeInUp" data-wow-delay="0.1s">
+                <div class="col-lg-4 col-md-6 portfolio-item second wow">
                     <div class="rounded overflow-hidden">
                         <div class="position-relative overflow-hidden">
                             <img class="img-fluid w-100" src="img/portfolio-6.png" alt="">
@@ -571,6 +571,9 @@
                                     <textarea class="form-control border-0" placeholder="Special Note" required></textarea>
                                 </div>
                                 <div class="col-12">
+                                    <div id="alertMessage" class="alert" style="display: none;"></div>
+                                </div>
+                                <div class="col-12">
                                     <button class="btn btn-primary w-100 py-3" type="submit">Submit</button>
                                 </div>
                             </div>
@@ -590,13 +593,13 @@
                         
                                     $.ajax({
                                         type: 'POST',
-                                        url: 'forms/send_email.php',
+                                        url: 'send_email.php',
                                         data: formData,
                                         success: function(response) {
-                                            alert('Message sent successfully');
+                                            $('#alertMessage').removeClass('alert-danger').addClass('alert-success').text('Message sent successfully').show();
                                         },
                                         error: function(error) {
-                                            alert('An error occurred. Please try again.');
+                                            $('#alertMessage').removeClass('alert-success').addClass('alert-danger').text('An error occurred. Please try again.').show();
                                         }
                                     });
                                 });

@@ -31,6 +31,118 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+    <style>
+        body {
+           font-family: Arial, sans-serif;
+           margin: 0;
+           padding: 0;
+           background-color: #f8f8f8;
+       }
+       
+       navi {
+           background-color: #f0f0f0;
+           padding: 10px 0;
+       }
+       
+       .nav-container {
+           display: flex;
+           justify-content: center;
+           align-items: center;
+           position: relative;
+       }
+       
+       .nav-header {
+           display: none;
+       }
+       
+       .nav-bar {
+           list-style-type: none;
+           margin: 0;
+           padding: 0;
+           display: flex;
+           justify-content: center;
+           flex-wrap: wrap;
+       }
+       
+       .nav-bar li {
+           margin: 5px;
+       }
+       
+       .nav-bar a {
+           text-decoration: none;
+           color: #333;
+           font-weight: bold;
+           padding: 10px 20px;
+           border-radius: 20px;
+           transition: background-color 0.3s;
+       }
+       
+       .nav-bar a.active,
+       .nav-bar a:hover {
+           background-color: #dcdcdc;
+       }
+       
+       #content {
+           padding: 20px;
+           /* text-align: center; */
+           display: none;
+       }
+       
+       .nav-toggle {
+           display: flex;
+           flex-direction: column;
+           margin-left: 5%;
+           justify-content: space-around;
+           width: 30px;
+           height: 24px;
+           cursor: pointer;
+       }
+       
+       .nav-toggle .bar {
+           height: 3px;
+           width: 100%;
+           background-color: #333;
+           border-radius: 2px;
+       }
+       
+       @media (max-width: 600px) {
+           .nav-container {
+               flex-direction: column;
+               align-items: flex-start;
+           }
+       
+           .nav-header {
+               display: block;
+               width: 100%;
+               text-align: right;
+               padding-right: 20px;
+           }
+       
+           .nav-bar {
+               display: none;
+               flex-direction: column;
+               width: 100%;
+               align-items: flex-start;
+           }
+       
+           .nav-bar li {
+               margin: 10px 0;
+               width: 100%;
+           }
+       
+           .nav-bar a {
+               width: 100%;
+               text-align: left;
+               padding: 10px 20px;
+           }
+       
+           .nav-bar.active {
+               display: flex;
+           }
+       }
+       
+           </style>
+</head>
 </head>
 
 <body>
@@ -97,7 +209,7 @@
                         <a href="future-proof.html" class="dropdown-item">Future Proof</a> 
                     </div>
                 </div>
-                <a href="format.html" class="nav-item nav-link">Format</a>
+                <a href="r-career.html" class="nav-item nav-link">R-Career</a>
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Explore</a>
                     <div class="dropdown-menu fade-up m-0">
@@ -110,9 +222,9 @@
                         <a href="walk-IN.html" class="dropdown-item">Walk IN</a>
                     </div>
                 </div>
-                <!-- <a href="contact.html" class="nav-item nav-link">Contact</a> -->
+                <a href="registration.html" class="nav-item nav-link">Apply Now</a>
             </div>
-            <a href="" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Partner With Us<i class="fa fa-arrow-right ms-3"></i></a>
+            <a href="" class="btn btn-primary py-4 px-lg-3 d-none d-lg-block">Partner With Us<i class="fa fa-arrow-right ms-3"></i></a>
         </div>
     </nav>
     <!-- Navbar End -->
@@ -135,48 +247,71 @@
     <!-- Page Header End -->
 
 <!-- Feature Start -->
-<div class="container-xxl py-5">
-    <div class="container">
-        <div class="row g-5">
-            <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.1s">
-                <div class="d-flex align-items-center mb-2">
-                    <div class="d-flex align-items-center justify-content-center bg-light" style="width: 60px; height: 60px;">
-                        <i class="fa fa-globe fa-2x text-primary"></i>
-                    </div>
-                    <h5 class="text-primary mb-0">20 states</h5>
-                </div>
-                <h5>Nationwide Reach</h5>
-            </div>
-            <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.1s">
-                <div class="d-flex align-items-center mb-2">
-                    <div class="d-flex align-items-center justify-content-center bg-light" style="width: 60px; height: 60px;">
-                        <i class="fa fa-handshake fa-2x text-primary"></i>
-                    </div>
-                    <h5 class="text-primary mb-0">1000+ openings</h5>
-                </div>
-                <h5>Massive Opportunity</h5>
-            </div>
-            <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.1s">
-                <div class="d-flex align-items-center mb-2">
-                    <div class="d-flex align-items-center justify-content-center bg-light" style="width: 60px; height: 60px;">
-                        <i class="fa fa-user-check fa-2x text-primary"></i>
-                    </div>
-                    <h5 class="text-primary mb-0">15+ formats</h5>
-                </div>
-                <h5>Diverse Portfolio</h5>
-            </div>
-            <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.1s">
-                <div class="d-flex align-items-center mb-2">
-                    <div class="d-flex align-items-center justify-content-center bg-light" style="width: 60px; height: 60px;">
-                        <i class="fa fa-graduation-cap fa-2x text-primary"></i>
-                    </div>
-                    <h5 class="text-primary mb-0">2500+ placed</h5>
-                </div>
-                <h5>Proven Success</h5>
+<navi>
+    <div class="nav-container">
+        <div class="nav-header">
+            <div class="nav-toggle" id="nav-toggle">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
             </div>
         </div>
+        <ul class="nav-bar" id="nav-bar">
+            <li><a href="#learning" data-content="brand-learning.html">Learning Aims</a></li>
+            <li><a href="#audiance" data-content="brand-audiance.html">Target Audience</a></li>
+            <li><a href="#plength" data-content="brand-plength.html">Program Length</a></li>
+            <li><a href="#modules" data-content="brand-modules.html">Modules</a></li>
+            <li><a href="#outcome" data-content="brand-outcome.html">Outcome</a></li>
+            <li><a href="#fee" data-content="brand-fee.html">Fee</a></li>
+            <!-- <li><a href="#supporters" data-content="supporters.html">Supporters</a></li> -->
+        </ul>
     </div>
+</navi>
+<div id="content">
+    <!-- Dynamic content will be displayed here -->
 </div>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+    const navToggle = document.getElementById('nav-toggle');
+    const navBar = document.getElementById('nav-bar');
+    const navLinks = document.querySelectorAll('.nav-bar a');
+    const contentDiv = document.getElementById('content');
+
+    navToggle.addEventListener('click', function () {
+        navBar.classList.toggle('active');
+    });
+
+    navLinks.forEach(link => {
+        link.addEventListener('click', function (event) {
+            event.preventDefault();
+            navLinks.forEach(nav => nav.classList.remove('active'));
+            this.classList.add('active');
+            const contentUrl = this.getAttribute('data-content');
+            fetchContent(contentUrl);
+            navBar.classList.remove('active'); // Close menu on link click
+        });
+    });
+
+    function fetchContent(url) {
+        fetch(url)
+            .then(response => response.text())
+            .then(data => {
+                contentDiv.style.display = 'block';
+                contentDiv.innerHTML = data;
+            })
+            .catch(error => {
+                contentDiv.style.display = 'block';
+                contentDiv.innerHTML = "An error occurred while loading the content.";
+                console.error('Error fetching content:', error);
+            });
+    }
+
+    // Trigger click event on the first navigation link to load the initial content
+    if (navLinks.length > 0) {
+        navLinks[0].click();
+    }
+});
+    </script>
 <!-- Feature Start -->
 
     <!-- About Start -->

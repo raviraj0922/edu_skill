@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Edu Skill</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Roboto:wght@500;700;900&display=swap" rel="stylesheet"> 
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+    
+    <style>
+        .image-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .image-container img {
+            max-width: 70%;
+            height: auto;
+            margin: 0 auto;
+        }
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- Spinner Start -->
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <!-- Spinner End -->
+
+
+    <!-- Topbar Start -->
+    <div class="container-fluid bg-primary p-0">
+        <div class="row gx-0 d-none d-lg-flex">
+            <div class="col-lg-7 px-5 text-start">
+                <div class="h-100 d-inline-flex align-items-center py-3 me-4">
+                    <small class="fa fa-map-marker-alt text-light me-2"></small>
+                    <small class="text-white">Offices: Santacruz ( E ) Mumbai, Maharashtra</small>
+                </div>
+                <div class="h-100 d-inline-flex align-items-center py-3">
+                    <small class="far fa-clock text-light me-2"></small>
+                    <small class="text-white">Mon - Fri : 09.00 AM - 09.00 PM</small>
+                </div>
+            </div>
+            <div class="col-lg-5 px-5 text-end">
+                <div class="h-100 d-inline-flex align-items-center py-3 me-4">
+                    <small class="fa fa-phone-alt text-light me-2"></small>
+                    <small class="text-white">+91 7522802290</small>
+                </div>
+                <div class="h-100 d-inline-flex align-items-center">
+                    <a class="btn btn-sm-square bg-white text-primary me-1" href=""><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-sm-square bg-white text-primary me-1" href=""><i class="fab fa-twitter"></i></a>
+                    <a class="btn btn-sm-square bg-white text-primary me-1" href=""><i class="fab fa-linkedin-in"></i></a>
+                    <a class="btn btn-sm-square bg-white text-primary me-0" href=""><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Topbar End -->
+
+
+    <!-- Navbar Start -->
+    <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0">
+        <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
+            <h2 class="m-0 text-primary">Edu-Skill</h2>
+        </a>
+        <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto p-4 p-lg-0">
+                <a href="index.html" class="nav-item nav-link">Home</a>
+                <a href="about.html" class="nav-item nav-link">About Us</a>
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Fast-Track Programs</a>
+                    <div class="dropdown-menu fade-up m-0">
+                        <a href="industry-certification.html" class="dropdown-item">Industry Certification</a>
+                        <a href="brand-specific.html" class="dropdown-item">Brand Specific</a>
+                        <a href="format-focused.html" class="dropdown-item">Format Focused</a>
+                        <a href="role-specific.html" class="dropdown-item">Role Specific</a>
+                        <a href="career-launching.html" class="dropdown-item">Career Launching</a>
+                        <a href="skill-building.html" class="dropdown-item">Skill Building</a>
+                        <a href="future-proof.html" class="dropdown-item">Future Proof</a> 
+                    </div>
+                </div>
+                <a href="r-career.html" class="nav-item nav-link active">R-Career</a>
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Explore</a>
+                    <div class="dropdown-menu fade-up m-0">
+                        <a href="open-positions.html" class="dropdown-item">Open Positions</a>
+                        <a href="internship.html" class="dropdown-item">Internship</a>
+                        <a href="full-time-jobs.html" class="dropdown-item">Full Time Jobs</a>
+                        <a href="part-time-jobs.html" class="dropdown-item">Part Time Jobs</a>
+                        <a href="externship.html" class="dropdown-item">Externship</a>
+                        <a href="virtual-drive.html" class="dropdown-item">Virtual Drive</a>
+                        <a href="walk-IN.html" class="dropdown-item">Walk IN</a>
+                    </div>
+                </div>
+                <a href="registration.html" class="nav-item nav-link">Apply Now</a>
+            </div>
+            <a href="" class="btn btn-primary py-4 px-lg-3 d-none d-lg-block">Partner With Us<i class="fa fa-arrow-right ms-3"></i></a>
+        </div>
+    </nav>
+    <!-- Navbar End -->
+
+
+    <!-- Page Header Start -->
+    <div class="container-fluid page-header py-5 mb-5">
+        <div class="container py-5">
+            <h1 class="display-3 text-white mb-3 animated slideInDown">Retail Career</h1>
+            <nav aria-label="breadcrumb animated slideInDown">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a class="text-white" href="index.html">Home</a></li>
+                    <li class="breadcrumb-item text-white active" aria-current="page">Retail Career</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+    <!-- Page Header End -->
+
+    <!-- Feature Start -->
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="row g-5">
+            <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.1s">
+                <div class="d-flex align-items-center mb-2">
+                    <div class="d-flex align-items-center justify-content-center bg-light" style="width: 60px; height: 60px;">
+                        <i class="fa fa-globe fa-2x text-primary"></i>
+                    </div>
+                    <h5 class="text-primary mb-0">20 states</h5>
+                </div>
+                <h5>Nationwide Reach</h5>
+            </div>
+            <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.1s">
+                <div class="d-flex align-items-center mb-2">
+                    <div class="d-flex align-items-center justify-content-center bg-light" style="width: 60px; height: 60px;">
+                        <i class="fa fa-handshake fa-2x text-primary"></i>
+                    </div>
+                    <h5 class="text-primary mb-0">1000+ openings</h5>
+                </div>
+                <h5>Massive Opportunity</h5>
+            </div>
+            <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.1s">
+                <div class="d-flex align-items-center mb-2">
+                    <div class="d-flex align-items-center justify-content-center bg-light" style="width: 60px; height: 60px;">
+                        <i class="fa fa-user-check fa-2x text-primary"></i>
+                    </div>
+                    <h5 class="text-primary mb-0">15+ formats</h5>
+                </div>
+                <h5>Diverse Portfolio</h5>
+            </div>
+            <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.1s">
+                <div class="d-flex align-items-center mb-2">
+                    <div class="d-flex align-items-center justify-content-center bg-light" style="width: 60px; height: 60px;">
+                        <i class="fa fa-graduation-cap fa-2x text-primary"></i>
+                    </div>
+                    <h5 class="text-primary mb-0">2500+ placed</h5>
+                </div>
+                <h5>Proven Success</h5>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Feature Start -->
+
+    <!-- About Start -->
+<div class="container-fluid bg-light overflow-hidden my-5 px-lg-0 col-lg-12">
+        
+    <div class="container-xxl wow fadeInUp col-lg-11" data-wow-delay="0.5s">
+        <div class="p-lg-3 pe-lg-0">
+            <div class="section-title text-center">
+                <h1 class="display-5 mb-4">Retail Career</h1>
+            </div>
+            <p class="pb-2 mt-3">India's organized retail sector is experiencing phenomenal growth, translating into tremendous career opportunities not just domestically, but internationally as well. This dynamic landscape offers a plethora of roles across diverse formats, from the essential grocery stores and hypermarkets that fuel our daily needs, to the vibrant world of online fashion retailers and international toy chains.  Furthermore, the industry caters to a wide range of consumer preferences, encompassing restaurants, beauty and wellness stores, electronics & appliance showrooms, home furnishing havens, convenience stores, and even the hospitality and healthcare sectors.
+            </p>
+        </div>
+    </div>
+    <div class="row g-0 mx-lg-0 wow fadeInUp">
+        <div class="col-lg-12 image-container">
+            <img class="img-fluid" src="img/r-career_map.png" alt="Retail Career Map">
+        </div>
+    </div>
+    <div class="container-fluid bg-light overflow-hidden px-lg-0 col-lg-12">
+        
+        <div class="container-xxl py-2 wow fadeInUp col-lg-11">
+            <div class="p-lg-3 pe-lg-0">
+                <p class="mb-4 pb-2">The Indian retail sector is on a meteoric rise, offering a plethora of exciting career paths with tremendous growth opportunities both nationally and internationally.  This dynamic industry caters to a wide range of consumer needs, encompassing diverse retail formats like:</p>
+                <p class="mb-4 pb-2 mt-3"><b>Groceries: </b>From hypermarkets to neighborhood stores, retail professionals keep shelves stocked and ensure a smooth shopping experience for grocery shoppers. <br> <b>Online Stores: </b>E-commerce is booming, creating a demand for specialists in online store management, marketing, and logistics to navigate the digital marketplace.<br>
+                    <b>International Toys: </b>Bring smiles to children's faces! This segment requires professionals who understand international sourcing and cater to the evolving toy market.<br> <b>Eating Restaurants: </b>The food and beverage industry thrives on passionate individuals who can manage restaurants, cafes, and quick service operations.<br> <b>Beauty & Wellness: </b>From cosmetics to personal care products, this segment offers opportunities for those with an understanding of beauty trends and customer preferences.<br><b>Electronics & Consumer Durables: </b>Tech-savvy individuals can find their niche in managing electronics stores or overseeing the supply chain for these high-demand products.<br><b>Home Furnishing: </b>Help people create their dream homes! Retail professionals can manage furniture stores or specialize in visual merchandising to create inspiring displays.<br><b>Convenience Stores: </b>Cater to the needs of busy consumers by managing convenience stores that offer a variety of everyday essentials.<br><b>Hospitality:</b> Luxury hotels, budget accommodations, and everything in between - the hospitality sector offers retail opportunities for those with a passion for service.<br><b>Healthcare:</b> Pharmacies and medical equipment stores require retail professionals who can manage inventory and ensure customers have access to the healthcare products they need.</p>
+                <p><b>The Indian retail sector offers a kaleidoscope of formats to choose from, including:</b><br>
+                    <ul><li>Essential Needs: Grocery stores, convenience stores</li>
+                    <li>Lifestyle: Beauty and wellness stores, home furnishing stores</li>
+                    <li>Fashion: Apparel stores, footwear stores</li>
+                    <li>Electronics: Electronics and consumer durables stores</li>
+                    <li>Experiential: Eating restaurants, hospitality stores</li>
+                    <li>Healthcare: Pharmacies, medical equipment stores</li>
+                    <li>E-commerce: Online stores across all categories</li>
+                    <li>This diverse landscape ensures there's a perfect fit for every interest and skillset.</li>
+                    <li>Building a Strong Retail Career: The Essential Skillset</li></ul></p>
+                    
+                    <p><b>To thrive in this dynamic environment, a well-honed skillset is crucial. Here are 12 key areas to focus on, with sub-skills and competencies to consider:</b><br>
+                        <b>Skills and competencies: </b>
+                    <ul><li>Customer Centricity</li>
+                        <ul><li>Communication & Interpersonal Skills:
+                            <ul><li>Customer service excellence</li>
+                            <li>Building rapport with colleagues and clients</li>
+                            <li>Effective negotiation and conflict resolution</li></ul>
+                        </li></ul></ul></p>
+                        <ul><li>Business Acumen </li>
+                            <ul><li>Operations and Management </li>
+                                <ul><li>Store Procedures, Inventory control and stock management</li>
+                                <li>Loss Prevention</li>
+                                <li>Financial literacy</li>
+                                <li>Sales & Marketing</li>
+                                <li>Product knowledge and upselling techniques</li>
+                                <li>Understanding customer needs and preferences</li>
+                                <li>Implementing effective marketing strategies</li>
+                                <li>Logistic and supply chain management</li></ul>
+                            </li></ul></ul>
+                            <ul><li>Digital Dexterity</li>
+                                <ul><li>E Commerce Savvy</li>
+                                    <ul><li>E commerce platform management</li>
+                                    <li>Catalogue management, Product listing and management</li>
+                                    <li>Logistic, product management</li>
+                                    <li>Digital marketing strategies</li>
+                                    <li>Data analysis, interpretation and trends analysis</li>
+                                    <li>Proficiency in retail software and applications</li>
+                                    <li>Reports management</li></ul>
+                                </li></ul></ul>
+                                <ul><li>Branding and Merchandising</li>
+                                <ul><li>Visual Merchandising, product display</li>
+                                    <li>Brand awareness and storytelling </li>
+                                    <li>Creating captivating product displays</li>
+                                    <li>Understanding space management and layout</li>
+                                </ul></ul>
+                                <ul><li>Financial Acumen</li>
+                                <ul><li>Basic accounting principles and budgeting</li>
+                                    <li>Brand awareness and storytelling Point-of-sale systems and transaction processing</li>
+                                </ul></ul>
+                                <ul><li>Problem-Solving & Critical Thinking</li>
+                                <ul><li>Identifying and resolving customer issues</li>
+                                    <li>Adapting to changing market conditions and trends</li>
+                                    <li>Teamwork & Leadership</li>
+                                </ul></ul>
+                                <ul><li>Leadership and Teamwork</li>
+                                <ul><li>Motivation and delegation</li>
+                                    <li>Collaboration and relationship building</li>
+                                    <li>Vendors, partners, clients management</li>
+                                </ul></ul>
+                                <ul><li>Adaptability and Innovation</li>
+                                <ul><li>Embracing change and evolving trends, preferences</li>
+                                    <li>Creative problem solving in challenging retail environment</li>
+                                    <li>Ability to learn and adapt</li>
+                                </ul></ul>
+                                <ul><li>Time Management & Prioritization:</li>
+                                <ul><li>Meeting deadlines and managing multiple tasks effectively</li>
+                                    <li>Prioritizing workload efficiently</li>
+                                </ul></ul>
+                                <ul><li>Work Ethic & Integrity:</li>
+                                <ul><li>Strong work ethic with a commitment to quality service</li>
+                                    <li>Maintaining high ethical standards in business practices</li>
+                                </ul></ul>
+                        </p>
+            </div>
+        </div>
+    
+    </div>
+    <div class="container">
+        <div class="row g-0 mx-lg-0 wow fadeInUp">
+            <div class="col-lg-12 video-container">
+                <iframe src="https://www.youtube.com/embed/zyFoC8OeSp4" allowfullscreen></iframe>
+            </div>
+        </div> 
+    </div>   
+</div>
+<!-- About End -->
+
+    <!-- Team Start -->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="section-title text-center">
+                <h1 class="display-5 mb-5">Top Brands</h1>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="team-item">
+                        <div class="overflow-hidden position-relative">
+                            <img class="img-fluid" src="img/team-1.jpg" alt="">
+                            <div class="team-social">
+                                <a class="btn btn-square" href=""><i class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-square" href=""><i class="fab fa-twitter"></i></a>
+                                <a class="btn btn-square" href=""><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                        <div class="text-center border border-5 border-light border-top-0 p-4">
+                            <h5 class="mb-0">Full Name</h5>
+                            <small>Designation</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="team-item">
+                        <div class="overflow-hidden position-relative">
+                            <img class="img-fluid" src="img/team-2.jpg" alt="">
+                            <div class="team-social">
+                                <a class="btn btn-square" href=""><i class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-square" href=""><i class="fab fa-twitter"></i></a>
+                                <a class="btn btn-square" href=""><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                        <div class="text-center border border-5 border-light border-top-0 p-4">
+                            <h5 class="mb-0">Full Name</h5>
+                            <small>Designation</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="team-item">
+                        <div class="overflow-hidden position-relative">
+                            <img class="img-fluid" src="img/team-3.jpg" alt="">
+                            <div class="team-social">
+                                <a class="btn btn-square" href=""><i class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-square" href=""><i class="fab fa-twitter"></i></a>
+                                <a class="btn btn-square" href=""><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                        <div class="text-center border border-5 border-light border-top-0 p-4">
+                            <h5 class="mb-0">Full Name</h5>
+                            <small>Designation</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
+                    <div class="team-item">
+                        <div class="overflow-hidden position-relative">
+                            <img class="img-fluid" src="img/team-4.jpg" alt="">
+                            <div class="team-social">
+                                <a class="btn btn-square" href=""><i class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-square" href=""><i class="fab fa-twitter"></i></a>
+                                <a class="btn btn-square" href=""><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                        <div class="text-center border border-5 border-light border-top-0 p-4">
+                            <h5 class="mb-0">Full Name</h5>
+                            <small>Designation</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Team End -->
+        
+
+    <!-- Footer Start -->
+    <div class="container-fluid bg-dark text-light footer mt-5 pt-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-light mb-4">Contact Us</h4>
+                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Offices: Santacruz ( E ) Mumbai, Maharashtra</p>
+                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Head Office: Prayagraj, Uttar Pradesh</p>
+                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+91 7522802290</p>
+                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>career@eduskill.org </p>
+                    <!-- <div class="d-flex pt-2">
+                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-youtube"></i></a>
+                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-linkedin-in"></i></a>
+                    </div> -->
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-light mb-4">Quick Links</h4>
+                    <a class="btn btn-link" href="">Media Block</a>
+                    <a class="btn btn-link" href="">Board of Directors</a>
+                    <a class="btn btn-link" href="">Terms & Condition</a>
+                    <a class="btn btn-link" href="">Privacy Policy</a>
+                    <a class="btn btn-link" href="">Discloser Statement</a>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-light mb-4">Discover</h4>
+                    <a class="btn btn-link" href="">Service</a>
+                    <a class="btn btn-link" href="">Programs</a>
+                    <a class="btn btn-link" href="">Industry Trends</a>
+                    <a class="btn btn-link" href="">Upcomming Events</a>
+                    <a class="btn btn-link" href="">Support</a>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-light mb-4">Newsletter</h4>
+                    <p>Dolor amet sit justo amet elitr clita ipsum elitr est.</p>
+                    <div class="position-relative mx-auto" style="max-width: 400px;">
+                        <input class="form-control border-0 w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
+                        <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="copyright">
+                <div class="row">
+                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                        &copy; <a class="border-bottom" href="#">Edu Skill</a>, All Right Reserved.
+                    </div>
+                    <div class="col-md-6 text-center text-md-end">
+                        Designed By <a href="https://github.com/raviraj0922"> <i class="bx bi-github"></i> </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-0 back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/isotope/isotope.pkgd.min.js"></script>
+    <script src="lib/lightbox/js/lightbox.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+    <script>
+        new WOW().init();
+    </script>
+</body>
+
+</html>
