@@ -793,7 +793,7 @@ navi {
 
 /* job search bar */
 
-.title {
+.title-search {
     margin-bottom: 20px;
     font-size: 3em;
     text-align: center;
@@ -811,7 +811,7 @@ navi {
     border: none;
 }
 
-.btn {
+.btn-search {
     padding: 10px 20px;
     border-radius: 4px;
     border: none;
@@ -857,7 +857,7 @@ navi {
         width: 300px;
     }
 
-    .title {
+    .title-search {
         font-size: 2em;
         margin-bottom: 20;
     }
@@ -876,7 +876,7 @@ navi {
 }
 
 @media (min-width: 1024px) {
-    .title {
+    .title-search {
         font-size: 2.5em;
         color: #ffffff;
     }
@@ -995,7 +995,7 @@ h2, h3 {
 }
 
 @media (max-width: 768px) {
-    .container {
+    .container-job {
         flex-direction: column;
     }
 
