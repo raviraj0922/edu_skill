@@ -207,49 +207,50 @@
     </div>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            fetch('https://printexinternational.com/jobs.php')
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Network response was not ok ' + response.statusText);
-                    }
-                    return response.json();
-                })
-                .then(jobs => {
-                    const jobList = document.getElementById('job-list');
-                    if (jobs.length === 0) {
-                        jobList.innerHTML = '<p>No jobs available at the moment.</p>';
-                        return;
-                    }
-                    jobs.forEach(jobs => {
-                        const jobItem = document.createElement('div');
-                        jobItem.className = 'job-item';
-                        jobItem.innerHTML = `
-                            <h3>${jobs.title}</h3>
-                            <p><strong>${jobs.company}</strong> <span>${jobs.location}</span></p>
-                            <p>${jobs.description}</p>
-                            <div class="job-footer">
-                                <span>Posted - ${jobs.posted_date}</span>
-                                <a href="${jobs.apply_url}">Apply Now</a>
-                            </div>
-                        `;
-                        jobList.appendChild(jobItem);
-                    });
-                })
-                .catch(error => {
-                    console.error('Error fetching jobs:', error);
-                    const jobList = document.getElementById('job-list');
-                    jobList.innerHTML = '<p>Sorry, we are unable to load the job listings at the moment. Please try again later.</p>';
-                });
-    
-            document.getElementById('subscription-form').addEventListener('submit', function(event) {
-                event.preventDefault();
-                alert('Thank you for subscribing!');
+    fetch('https://your-domain.com/fetch_jobs.php')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok ' + response.statusText);
+            }
+            return response.json();
+        })
+        .then(jobs => {
+            const jobList = document.getElementById('job-list');
+            if (jobs.length === 0) {
+                jobList.innerHTML = '<p>No jobs available at the moment.</p>';
+                return;
+            }
+            jobs.forEach(job => {
+                const jobItem = document.createElement('div');
+                jobItem.className = 'job-item';
+                jobItem.innerHTML = `
+                    <h3>${job.title}</h3>
+                    <p><strong>${job.company}</strong> <span>${job.location}</span></p>
+                    <p>${job.description}</p>
+                    <div class="job-footer">
+                        <span>Posted - ${job.posted_date}</span>
+                        <a href="${job.apply_url}" target="_blank">Apply Now</a>
+                    </div>
+                `;
+                jobList.appendChild(jobItem);
             });
-    
-            document.getElementById('show-more').addEventListener('click', function() {
-                window.location.href = 'more_jobs.html';
-            });
+        })
+        .catch(error => {
+            console.error('Error fetching jobs:', error);
+            const jobList = document.getElementById('job-list');
+            jobList.innerHTML = '<p>Sorry, we are unable to load the job listings at the moment. Please try again later.</p>';
         });
+
+    document.getElementById('subscription-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+        alert('Thank you for subscribing!');
+    });
+
+    document.getElementById('show-more').addEventListener('click', function() {
+        window.location.href = 'more_jobs.html';
+    });
+});
+
     </script>
     
     <!-- Featured Jobs -->
