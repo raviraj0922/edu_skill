@@ -1,12 +1,11 @@
 <?php
-$servername = getenv('monorail.proxy.rlwy.net');
-$username = getenv('root');
-$password = getenv('ravi@3308');
-$dbname = getenv('railway');
-$port = getenv('31028');
+$servername = "localhost:3306";
+$username = "ranjeet055";
+$password = "ranjeetsingh@055";
+$dbname = "charu_02";
 
 // Create connection
-$conn = new mysqli($servername, $username, $password, $dbname, $port);
+$conn = new mysqli($servername, $username, $password, $dbname);
 
 // Check connection
 if ($conn->connect_error) {
