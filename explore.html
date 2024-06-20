@@ -32,109 +32,9 @@
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
     <style>
-       navi {
-           background-color: #f0f0f0;
-           padding: 10px 0;
-       }
        
-       .nav-container {
-           display: flex;
-           justify-content: center;
-           align-items: center;
-           position: relative;
-       }
        
-       .nav-header {
-           display: none;
-       }
-       
-       .nav-bar {
-           list-style-type: none;
-           margin: 0;
-           padding: 0;
-           display: flex;
-           justify-content: center;
-           flex-wrap: wrap;
-       }
-       
-       .nav-bar li {
-           margin: 5px;
-       }
-       
-       .nav-bar a {
-           text-decoration: none;
-           color: #333;
-           font-weight: bold;
-           padding: 10px 20px;
-           border-radius: 20px;
-           transition: background-color 0.3s;
-       }
-       
-       .nav-bar a.active,
-       .nav-bar a:hover {
-           background-color: #dcdcdc;
-       }
-       
-       #content {
-           padding: 20px;
-           /* text-align: center; */
-           display: none;
-       }
-       
-       .nav-toggle {
-           display: flex;
-           flex-direction: column;
-           margin-left: 5%;
-           justify-content: space-around;
-           width: 30px;
-           height: 24px;
-           cursor: pointer;
-       }
-       
-       .nav-toggle .bar {
-           height: 3px;
-           width: 100%;
-           background-color: #333;
-           border-radius: 2px;
-       }
-       
-       @media (max-width: 600px) {
-           .nav-container {
-               flex-direction: column;
-               align-items: flex-start;
-           }
-       
-           .nav-header {
-               display: block;
-               width: 100%;
-               text-align: right;
-               padding-right: 20px;
-           }
-       
-           .nav-bar {
-               display: none;
-               flex-direction: column;
-               width: 100%;
-               align-items: flex-start;
-           }
-       
-           .nav-bar li {
-               margin: 10px 0;
-               width: 100%;
-           }
-       
-           .nav-bar a {
-               width: 100%;
-               text-align: left;
-               padding: 10px 20px;
-           }
-       
-           .nav-bar.active {
-               display: flex;
-           }
-       }
-       
-           </style>
+    </style>
 </head>
 
 <body>
@@ -215,16 +115,132 @@
     <!-- Page Header Start -->
     <div class="container-fluid page-header py-5 mb-5">
         <div class="container py-5">
-            <h1 class="display-3 text-white mb-3 animated slideInDown">Explore</h1>
-            <nav aria-label="breadcrumb animated slideInDown">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a class="text-white" href="index.html">Home</a></li>
-                    <li class="breadcrumb-item text-white active" aria-current="page">Explore</li>
-                </ol>
-            </nav>
+            <div class="search-row">
+                <h2 class="title">Retail Job Board<br>Connecting retail talent with great opportunities</h2>
+                <form method="GET" action="https://jobs.com/" class="quick-search form-inline d-sm-flex justify-content-sm-center">
+                    <input type="hidden" value="search" name="page">
+                    <input type="hidden" value="advanced_search" name="action">
+                    <div class="form-group">
+                        <div class="input-group input-group-lg">
+                            <input type="text" class="form-control" name="keywords" placeholder="Job Category" value="">
+                        </div>
+                        <div class="findjob">Find jobs by category</div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group input-group-lg">
+                            <input type="text" class="form-control" name="city_state_zip" placeholder="City Name" value="" autocomplete="off">
+                        </div>
+                        <div class="location">Enter location</div>
+                        <div class="autocomplete-suggestions" style="position: absolute; display: none; max-height: 300px; z-index: 9999;"></div>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-success btn-lg">Find a Job</button>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
     <!-- Page Header End -->
+
+    <!-- Featured Companies -->
+    <div class="container-xxl mb-3 text-center">
+        <div class="container">
+            <div class="text-center">
+                <h1 class="display-8 mb-3">Featured Companies</h1>
+            </div>
+            <div class="row g-4 mb-5">
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="team-item">
+                        <div class="overflow-hidden position-relative">
+                            <img class="img-fluid" src="img/top_brands/1.png" width="200px" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="team-item">
+                        <div class="overflow-hidden position-relative">
+                            <img class="img-fluid" src="img/top_brands/6.png" width="200px" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="team-item">
+                        <div class="overflow-hidden position-relative">
+                            <img class="img-fluid" src="img/top_brands/7.png" width="200px" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
+                    <div class="team-item">
+                        <div class="overflow-hidden position-relative">
+                            <img class="img-fluid" src="img/top_brands/11.png" width="200px" alt="">
+                        </div>
+                    </div>
+                </div>                
+            </div>
+        </div>
+    </div>
+    <!-- Featured Companies Ends -->
+
+    <!-- Featured Jobs -->
+    <div class="container-job">
+        <div class="main-content">
+            <h2>Featured Jobs</h2>
+            <div id="job-list" class="job-list"></div>
+            <button id="show-more" class="btn-job">Show More</button>
+        </div>
+        <div class="sidebar">
+            <div class="newsletter">
+                <h3>Get New Jobs In Your Inbox</h3>
+                <form id="subscription-form">
+                    <input type="email" placeholder="Your email address" required>
+                    <input type="text" placeholder="Enter your Zip code" required>
+                    <button type="submit">Sign me up</button>
+                </form>
+                <p>By signing up, you agree to the <a href="#">terms of use</a> and <a href="#">privacy policy</a></p>
+            </div>
+            <div class="employer">
+                <h3>Are You An Employer?</h3>
+                <a href="/employer-offers" class="btn">Post a Job!</a>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    fetch('fetch_jobs.php')
+        .then(response => response.json())
+        .then(jobs => {
+            const jobList = document.getElementById('job-list');
+            jobs.forEach(job => {
+                const jobItem = document.createElement('div');
+                jobItem.className = 'job-item';
+                jobItem.innerHTML = `
+                    <h3>${job.title}</h3>
+                    <p><strong>${job.company}</strong> <span>${job.location}</span></p>
+                    <p>${job.description}</p>
+                    <div class="job-footer">
+                        <span>Posted - ${job.posted_date}</span>
+                        <a href="${job.apply_url}">Apply Now</a>
+                        <a href="${job.save_url}">Save job</a>
+                    </div>
+                `;
+                jobList.appendChild(jobItem);
+            });
+        })
+        .catch(error => console.error('Error fetching jobs:', error));
+    
+    document.getElementById('subscription-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+        alert('Thank you for subscribing!');
+    });
+
+    document.getElementById('show-more').addEventListener('click', function() {
+        window.location.href = 'more_jobs.html';
+    });
+});
+
+    </script>
+    <!-- Featured Jobs -->
 
 <navi>
     <div class="nav-container">
