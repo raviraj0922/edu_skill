@@ -220,16 +220,16 @@
                         jobList.innerHTML = '<p>No jobs available at the moment.</p>';
                         return;
                     }
-                    jobs.forEach(job => {
+                    jobs.forEach(jobs => {
                         const jobItem = document.createElement('div');
                         jobItem.className = 'job-item';
                         jobItem.innerHTML = `
-                            <h3>${job.title}</h3>
-                            <p><strong>${job.company}</strong> <span>${job.location}</span></p>
-                            <p>${job.description}</p>
+                            <h3>${jobs.title}</h3>
+                            <p><strong>${jobs.company}</strong> <span>${jobs.location}</span></p>
+                            <p>${jobs.description}</p>
                             <div class="job-footer">
-                                <span>Posted - ${job.posted_date}</span>
-                                <a href="${job.apply_url}">Apply Now</a>
+                                <span>Posted - ${jobs.posted_date}</span>
+                                <a href="${jobs.apply_url}">Apply Now</a>
                             </div>
                         `;
                         jobList.appendChild(jobItem);
