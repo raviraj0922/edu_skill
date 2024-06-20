@@ -116,7 +116,7 @@
     <div class="container-fluid page-header py-5 mb-5">
         <div class="container py-5">
             <div class="search-row">
-                <h2 class="title">Retail Job Board<br>Connecting retail talent with great opportunities</h2>
+                <h2 class="title-search">Retail Job Board<br>Connecting retail talent with great opportunities</h2>
                 <form method="GET" action="https://jobs.com/" class="quick-search form-inline d-sm-flex justify-content-sm-center">
                     <input type="hidden" value="search" name="page">
                     <input type="hidden" value="advanced_search" name="action">
@@ -134,7 +134,7 @@
                         <div class="autocomplete-suggestions" style="position: absolute; display: none; max-height: 300px; z-index: 9999;"></div>
                     </div>
                     <div class="form-group">
-                        <button type="submit" class="btn btn-success btn-lg">Find a Job</button>
+                        <button type="submit" class="btn-search btn-success btn-lg">Find a Job</button>
                     </div>
                 </form>
             </div>
@@ -201,13 +201,13 @@
             </div>
             <div class="employer">
                 <h3>Are You An Employer?</h3>
-                <a href="/employer-offers" class="btn">Post a Job!</a>
+                <a href="/employer-offers" class="btn-job">Post a Job!</a>
             </div>
         </div>
     </div>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-    fetch('fetch_jobs.php')
+    fetch('https://printexinternational.com/jobs.php')
         .then(response => response.json())
         .then(jobs => {
             const jobList = document.getElementById('job-list');
@@ -221,7 +221,6 @@
                     <div class="job-footer">
                         <span>Posted - ${job.posted_date}</span>
                         <a href="${job.apply_url}">Apply Now</a>
-                        <a href="${job.save_url}">Save job</a>
                     </div>
                 `;
                 jobList.appendChild(jobItem);
