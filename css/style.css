@@ -804,7 +804,7 @@ navi {
     width: 100%;
 }
 
-.form-control {
+.form-control-search {
     width: 100%;
     padding: 10px;
     border-radius: 4px;
@@ -849,11 +849,11 @@ navi {
         margin-right: 0;
     }
 
-    .input-group-lg, .btn {
+    .input-group-lg, .btn-search {
         width: auto;
     }
 
-    .form-control {
+    .form-control-search {
         width: 300px;
     }
 
