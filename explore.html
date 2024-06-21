@@ -182,78 +182,96 @@
     </div>
     <!-- Featured Companies Ends -->
 
-    <!-- Featured Jobs -->
-    <div class="container-job">
-        <div class="main-content">
-            <h2>Featured Jobs</h2>
-            <div id="job-list" class="job-list"></div>
-            <button id="show-more" class="btn-job">Show More</button>
-        </div>
-        <div class="sidebar">
-            <div class="newsletter">
-                <h3>Get New Jobs In Your Inbox</h3>
-                <form id="subscription-form">
-                    <input type="email" placeholder="Your email address" required>
-                    <input type="text" placeholder="Enter your Zip code" required>
-                    <button type="submit">Sign me up</button>
-                </form>
-                <p>By signing up, you agree to the <a href="#">terms of use</a> and <a href="#">privacy policy</a></p>
-            </div>
-            <div class="employer">
-                <h3>Are You An Employer?</h3>
-                <a href="/employer-offers" class="btn-job">Post a Job!</a>
-            </div>
-        </div>
+   <!-- ======= Breadcrumbs ======= -->
+   <section id="breadcrumbs" class="breadcrumbs">
+    <div class="container mt-4">
+
+      <div class="d-flex justify-content-between align-items-center">
+        <h2>Search Details</h2>
+        <ol>
+          <li><a href="index.html">Home</a></li>
+          <li>Search</li>
+        </ol>
+      </div>
+
     </div>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-    fetch('https://printexinternational.com/jobs.php')
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok ' + response.statusText);
-            }
-            return response.json();
-        })
-        .then(jobs => {
-            const jobList = document.getElementById('job-list');
-            if (jobs.length === 0) {
-                jobList.innerHTML = '<p>No jobs available at the moment.</p>';
-                return;
-            }
-            jobs.forEach(job => {
-                const jobItem = document.createElement('div');
-                jobItem.className = 'job-item';
-                jobItem.innerHTML = `
-                    <h3>${job.title}</h3>
-                    <p><strong>${job.company}</strong> <span>${job.location}</span></p>
-                    <p>${job.description}</p>
-                    <div class="job-footer">
-                        <span>Posted - ${job.posted_date}</span>
-                        <a href="${job.apply_url}" target="_blank">Apply Now</a>
-                    </div>
-                `;
-                jobList.appendChild(jobItem);
-            });
-        })
-        .catch(error => {
-            console.error('Error fetching jobs:', error);
-            const jobList = document.getElementById('job-list');
-            jobList.innerHTML = '<p>Sorry, we are unable to load the job listings at the moment. Please try again later.</p>';
-        });
+  </section><!-- End Breadcrumbs -->
 
-    document.getElementById('subscription-form').addEventListener('submit', function(event) {
-        event.preventDefault();
-        alert('Thank you for subscribing!');
-    });
+  <!-- Featured Jobs -->
+<div class="container-job">
+<div class="main-content">
+    <h2>Featured Jobs</h2>
+    <div id="job-list" class="job-list"></div>
+    <button id="show-more" class="btn-job">Show More</button>
+</div>
+<div class="sidebar">
+    <div class="newsletter">
+        <h3>Get New Jobs In Your Inbox</h3>
+        <form id="subscription-form">
+            <input type="email" placeholder="Your email address" required>
+            <input type="text" placeholder="Enter your Zip code" required>
+            <button type="submit">Sign me up</button>
+        </form>
+        <p>By signing up, you agree to the <a href="#">terms of use</a> and <a href="#">privacy policy</a></p>
+    </div>
+    <div class="employer">
+        <h3>Are You An Employer?</h3>
+        <a href="/employer-offers" class="btn-job">Post a Job!</a>
+    </div>
+</div>
+</div>
 
-    document.getElementById('show-more').addEventListener('click', function() {
-        window.location.href = 'more_jobs.html';
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+fetch('https://printexinternational.com/jobs.php')
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Network response was not ok ' + response.statusText);
+    }
+    return response.json();
+  })
+  .then(jobs => {
+    const jobList = document.getElementById('job-list');
+    if (jobs.length === 0) {
+      jobList.innerHTML = '<p>No jobs available at the moment.</p>';
+      return;
+    }
+    jobs.forEach(job => {
+      const jobItem = document.createElement('div');
+      jobItem.className = 'job-item';
+      jobItem.innerHTML = `
+        <h3><a href="${job.apply_url}" target="_blank">${job.title}</a></h3>
+        <p>
+          <strong><i class="bi bi-building"></i> ${job.company}</strong> 
+          <span><i class="bi bi-geo-alt"></i> ${job.location}</span>
+        </p>
+        <p>${job.description.substring(0, 100)}...</p>
+        <div class="job-footer">
+          <span>Posted - ${job.posted_date}</span>
+          <a href="${job.apply_url}" target="_blank">Apply Now</a>
+        </div>
+      `;
+      jobList.appendChild(jobItem);
     });
+  })
+  .catch(error => {
+    console.error('Error fetching jobs:', error);
+    const jobList = document.getElementById('job-list');
+    jobList.innerHTML = '<p>Sorry, we are unable to load the job listings at the moment. Please try again later.</p>';
+  });
+
+document.getElementById('subscription-form').addEventListener('submit', function(event) {
+  event.preventDefault();
+  alert('Thank you for subscribing!');
 });
 
-    </script>
-    
-    <!-- Featured Jobs -->
+document.getElementById('show-more').addEventListener('click', function() {
+  window.location.href = 'more_jobs.html';
+});
+});
+</script>
+
+<!-- Featured Jobs -->
 
 <navi>
     <div class="nav-container">
