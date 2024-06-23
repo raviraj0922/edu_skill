@@ -30,7 +30,77 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
-    
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <style>
+        .clients {
+            background: #f8f9fa;
+            padding: 60px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .swiper {
+            width: 100%;
+            padding-top: 20px;
+            padding-bottom: 40px;
+        }
+
+        .swiper-slide {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .team-item {
+            max-width: 250px;
+            text-align: center;
+        }
+
+        .team-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 50%;
+        }
+
+        .team-item h5 {
+            margin: 15px 0 5px 0;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .team-item small {
+            display: block;
+            font-size: 14px;
+            color: #666;
+        }
+        /* Responsive adjustments */
+        @media (max-width: 1200px) {
+            .team-item {
+                max-width: 200px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .team-item {
+                max-width: 180px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .team-item {
+                max-width: 150px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .team-item {
+                max-width: 120px;
+            }
+        }
+    </style>
     <style>
         .image-container {
             display: flex;
@@ -218,53 +288,81 @@
                 <p class="mb-4 pb-2">The Indian retail sector is on a meteoric rise, offering a plethora of exciting career paths with tremendous growth opportunities both nationally and internationally.  This dynamic industry caters to a wide range of consumer needs, encompassing diverse retail formats like:</p>
                 <p class="mb-4 pb-2 mt-3"><b>Groceries: </b>From hypermarkets to neighborhood stores, retail professionals keep shelves stocked and ensure a smooth shopping experience for grocery shoppers. <br> <b>Online Stores: </b>E-commerce is booming, creating a demand for specialists in online store management, marketing, and logistics to navigate the digital marketplace.<br>
                     <b>International Toys: </b>Bring smiles to children's faces! This segment requires professionals who understand international sourcing and cater to the evolving toy market.<br> <b>Eating Restaurants: </b>The food and beverage industry thrives on passionate individuals who can manage restaurants, cafes, and quick service operations.<br> <b>Beauty & Wellness: </b>From cosmetics to personal care products, this segment offers opportunities for those with an understanding of beauty trends and customer preferences.<br><b>Electronics & Consumer Durables: </b>Tech-savvy individuals can find their niche in managing electronics stores or overseeing the supply chain for these high-demand products.<br><b>Home Furnishing: </b>Help people create their dream homes! Retail professionals can manage furniture stores or specialize in visual merchandising to create inspiring displays.<br><b>Convenience Stores: </b>Cater to the needs of busy consumers by managing convenience stores that offer a variety of everyday essentials.<br><b>Hospitality:</b> Luxury hotels, budget accommodations, and everything in between - the hospitality sector offers retail opportunities for those with a passion for service.<br><b>Healthcare:</b> Pharmacies and medical equipment stores require retail professionals who can manage inventory and ensure customers have access to the healthcare products they need.</p>
-                <p><b>The Indian retail sector offers a kaleidoscope of formats to choose from, including:</b><br>
-                    <ul><li>Essential Needs: Grocery stores, convenience stores</li>
-                    <li>Lifestyle: Beauty and wellness stores, home furnishing stores</li>
-                    <li>Fashion: Apparel stores, footwear stores</li>
-                    <li>Electronics: Electronics and consumer durables stores</li>
-                    <li>Experiential: Eating restaurants, hospitality stores</li>
-                    <li>Healthcare: Pharmacies, medical equipment stores</li>
-                    <li>E-commerce: Online stores across all categories</li>
-                    <li>This diverse landscape ensures there's a perfect fit for every interest and skillset.</li>
-                    <li>Building a Strong Retail Career: The Essential Skillset</li></ul></p>
-                    
-                    <p><b>To thrive in this dynamic environment, a well-honed skillset is crucial. Here are 12 key areas to focus on, with sub-skills and competencies to consider:</b><br>
-                        <b>Skills and competencies: </b>
-                    <ul><li>Customer Centricity</li>
-                        <ul><li>Communication & Interpersonal Skills:
-                            <ul><li>Customer service excellence</li>
-                            <li>Building rapport with colleagues and clients</li>
-                            <li>Effective negotiation and conflict resolution</li></ul>
-                        </li></ul></ul></p>
-                        <ul><li>Business Acumen </li>
-                            <ul><li>Operations and Management </li>
-                                <ul><li>Store Procedures, Inventory control and stock management</li>
-                                <li>Loss Prevention</li>
-                                <li>Financial literacy</li>
-                                <li>Sales & Marketing</li>
-                                <li>Product knowledge and upselling techniques</li>
-                                <li>Understanding customer needs and preferences</li>
-                                <li>Implementing effective marketing strategies</li>
-                                <li>Logistic and supply chain management</li></ul>
-                            </li></ul></ul>
-                            <ul><li>Digital Dexterity</li>
-                                <ul><li>E Commerce Savvy</li>
-                                    <ul><li>E commerce platform management</li>
-                                    <li>Catalogue management, Product listing and management</li>
-                                    <li>Logistic, product management</li>
-                                    <li>Digital marketing strategies</li>
-                                    <li>Data analysis, interpretation and trends analysis</li>
-                                    <li>Proficiency in retail software and applications</li>
-                                    <li>Reports management</li></ul>
+                    <div class="container-fluid bg-light overflow-hidden px-lg-0" style="margin: 6rem 0;">
+            <div class="container feature px-lg-2">
+            <div class="row g-0 mx-lg-0">
+                <div class="col-lg-6 feature-text py-2 wow fadeIn">
+                    <div class="p-lg-5 ps-lg-0">
+                        <div class="section-title text-start">
+                            <h4 class="mb-2">The Indian retail sector offers a kaleidoscope of formats to choose from, including:</h4>
+                        </div>
+                        <p class="mb-2 pb-1"><ul><li>Essential Needs: Grocery stores, convenience stores</li>
+                            <li>Lifestyle: Beauty and wellness stores, home furnishing stores</li>
+                            <li>Fashion: Apparel stores, footwear stores</li>
+                            <li>Electronics: Electronics and consumer durables stores</li>
+                            <li>Experiential: Eating restaurants, hospitality stores</li>
+                            <li>Healthcare: Pharmacies, medical equipment stores</li>
+                            <li>E-commerce: Online stores across all categories</li>
+                            <li>This diverse landscape ensures there's a perfect fit for every interest and skillset.</li>
+                            <li>Building a Strong Retail Career: The Essential Skillset</li></ul></p>
+                    </div>
+                </div>
+                <div class="col-lg-6 pe-lg-0" style="min-height: 400px;">
+                    <div class="position-relative h-100">
+                        <img class="position-absolute img-fluid w-100 h-100" src="img/feature.jpg" style="object-fit: cover;" alt="">
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <div><b>To thrive in this dynamic environment, a well-honed skillset is crucial. Here are 12 key areas to focus on, with sub-skills and competencies to consider:</b><br>
+            <b>Skills and competencies: </b>
+        </div>
+        
+        <div class="container-fluid bg-light overflow-hidden px-lg-0">
+            <div class="container feature px-lg-2">
+                <div class="row g-0 mx-lg-0">
+                    <div class="col-lg-6 feature-text py-1 wow fadeIn">
+                        <div class="p-lg-3 ps-lg-0">
+                            <p class="mb-1 pb-1"><ul><li>Customer Centricity</li>
+                                <ul><li>Communication & Interpersonal Skills:
+                                    <ul><li>Customer service excellence</li>
+                                    <li>Building rapport with colleagues and clients</li>
+                                    <li>Effective negotiation and conflict resolution</li></ul>
                                 </li></ul></ul>
-                                <ul><li>Branding and Merchandising</li>
-                                <ul><li>Visual Merchandising, product display</li>
-                                    <li>Brand awareness and storytelling </li>
-                                    <li>Creating captivating product displays</li>
-                                    <li>Understanding space management and layout</li>
-                                </ul></ul>
-                                <ul><li>Financial Acumen</li>
+                                <ul><li>Business Acumen </li>
+                                    <ul><li>Operations and Management </li>
+                                        <ul><li>Store Procedures, Inventory control and stock management</li>
+                                        <li>Loss Prevention</li>
+                                        <li>Financial literacy</li>
+                                        <li>Sales & Marketing</li>
+                                        <li>Product knowledge and upselling techniques</li>
+                                        <li>Understanding customer needs and preferences</li>
+                                        <li>Implementing effective marketing strategies</li>
+                                        <li>Logistic and supply chain management</li></ul>
+                                    </li></ul></ul>
+                                    <ul><li>Digital Dexterity</li>
+                                        <ul><li>E Commerce Savvy</li>
+                                            <ul><li>E commerce platform management</li>
+                                            <li>Catalogue management, Product listing and management</li>
+                                            <li>Logistic, product management</li>
+                                            <li>Digital marketing strategies</li>
+                                            <li>Data analysis, interpretation and trends analysis</li>
+                                            <li>Proficiency in retail software and applications</li>
+                                            <li>Reports management</li></ul>
+                                        </li></ul></ul>
+                                        <ul><li>Branding and Merchandising</li>
+                                        <ul><li>Visual Merchandising, product display</li>
+                                            <li>Brand awareness and storytelling </li>
+                                            <li>Creating captivating product displays</li>
+                                            <li>Understanding space management and layout</li>
+                                        </ul></ul></p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 feature-text py-1 wow fadeIn">
+                        <div class="p-lg-4 ps-lg-0">
+                            <p class="mb-1 pb-1"><ul><li>Financial Acumen</li>
                                 <ul><li>Basic accounting principles and budgeting</li>
                                     <li>Brand awareness and storytelling Point-of-sale systems and transaction processing</li>
                                 </ul></ul>
@@ -290,8 +388,15 @@
                                 <ul><li>Work Ethic & Integrity:</li>
                                 <ul><li>Strong work ethic with a commitment to quality service</li>
                                     <li>Maintaining high ethical standards in business practices</li>
-                                </ul></ul>
-                        </p>
+                                </ul></ul></p>
+                        </div>
+                    </div> 
+                </div>
+            </div>
+        </div>
+                    <div>
+                                
+                            </div>
             </div>
         </div>
     
@@ -306,81 +411,136 @@
 </div>
 <!-- About End -->
 
-    <!-- Team Start -->
-    <div class="container-xxl py-5">
-        <div class="container">
-            <div class="section-title text-center">
-                <h1 class="display-5 mb-5">Top Brands</h1>
+<!-- Team Start -->
+<section id="clients" class="clients section-bg">
+    <div class="container" data-aos="fade-up">
+        <div class="section-title">
+            <h1 class="display-5 mb-5">Top Brands</h1>
+        </div>
+        <div class="clients-slider swiper" data-aos="fade-up" data-aos-delay="100">
+            <div class="swiper-wrapper align-items-center">
+                <div class="swiper-slide">
+                    <div class="team-item">
+                        <img src="img/top_brands/1.png" alt="">
+                        <h5>Relaince Smart</h5>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="team-item">
+                        <img src="img/top_brands/2.png" alt="">
+                        <h5>Relaince Jewels</h5>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="team-item">
+                        <img src="img/top_brands/3.png" alt="">
+                        <h5>Relaince Digital</h5>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="team-item">
+                        <img src="img/top_brands/4.png" alt="">
+                        <h5>Net Meds</h5>
+                    </div>
+                </div>
+                
+                <div class="swiper-slide">
+                    <div class="team-item">
+                        <img src="img/top_brands/5.png" alt="">
+                        <h5>Hamleys</h5>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="team-item">
+                        <img src="img/top_brands/6.png" alt="">
+                        <h5>Flipkart</h5>  
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="team-item">
+                        <img src="img/top_brands/7.png" alt="">
+                        <h5>Tira</h5>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="team-item">
+                        <img src="img/top_brands/8.png" alt="">
+                        <h5>Westside</h5>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="team-item">
+                        <img src="img/top_brands/9.png" alt="">
+                        <h5>Shoppers Stop</h5>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="team-item">
+                        <img src="img/top_brands/10.png" alt="">
+                        <h5>D-Mart</h5>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="team-item">
+                        <img src="img/top_brands/11.png" alt="">
+                        <h5>Cafe Coffee Day</h5>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="team-item">
+                        <img src="img/top_brands/12.png" alt="">
+                        <h5>Big Basket</h5>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="team-item">
+                        <img src="img/top_brands/13.png" alt="">
+                        <h5>Aamazon</h5>
+                    </div>
+                </div>
             </div>
-            <div class="row g-4">
-                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="team-item">
-                        <div class="overflow-hidden position-relative">
-                            <img class="img-fluid" src="img/team-1.jpg" alt="">
-                            <div class="team-social">
-                                <a class="btn btn-square" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-square" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-square" href=""><i class="fab fa-instagram"></i></a>
-                            </div>
-                        </div>
-                        <div class="text-center border border-5 border-light border-top-0 p-4">
-                            <h5 class="mb-0">Full Name</h5>
-                            <small>Designation</small>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="team-item">
-                        <div class="overflow-hidden position-relative">
-                            <img class="img-fluid" src="img/team-2.jpg" alt="">
-                            <div class="team-social">
-                                <a class="btn btn-square" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-square" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-square" href=""><i class="fab fa-instagram"></i></a>
-                            </div>
-                        </div>
-                        <div class="text-center border border-5 border-light border-top-0 p-4">
-                            <h5 class="mb-0">Full Name</h5>
-                            <small>Designation</small>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                    <div class="team-item">
-                        <div class="overflow-hidden position-relative">
-                            <img class="img-fluid" src="img/team-3.jpg" alt="">
-                            <div class="team-social">
-                                <a class="btn btn-square" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-square" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-square" href=""><i class="fab fa-instagram"></i></a>
-                            </div>
-                        </div>
-                        <div class="text-center border border-5 border-light border-top-0 p-4">
-                            <h5 class="mb-0">Full Name</h5>
-                            <small>Designation</small>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
-                    <div class="team-item">
-                        <div class="overflow-hidden position-relative">
-                            <img class="img-fluid" src="img/team-4.jpg" alt="">
-                            <div class="team-social">
-                                <a class="btn btn-square" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-square" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-square" href=""><i class="fab fa-instagram"></i></a>
-                            </div>
-                        </div>
-                        <div class="text-center border border-5 border-light border-top-0 p-4">
-                            <h5 class="mb-0">Full Name</h5>
-                            <small>Designation</small>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <div class="swiper-pagination"></div>
         </div>
     </div>
-    <!-- Team End -->
+</section>
+
+<!-- Swiper JS -->
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var swiper = new Swiper('.clients-slider', {
+            slidesPerView: 4,
+            spaceBetween: 30,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+            breakpoints: {
+                640: {
+                    slidesPerView: 1,
+                    spaceBetween: 20,
+                },
+                768: {
+                    slidesPerView: 2,
+                    spaceBetween: 30,
+                },
+                1024: {
+                    slidesPerView: 3,
+                    spaceBetween: 30,
+                },
+                1200: {
+                    slidesPerView: 4,
+                    spaceBetween: 30,
+                },
+            },
+        });
+    });
+</script>
+<!-- Team End -->
         
 
     <!-- Footer Start -->

@@ -32,9 +32,113 @@
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
     <style>
-       
-       
-    </style>
+    .container-xxl {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.job-form {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.form-column {
+    flex: 1;
+    padding: 10px;
+    min-width: 300px; /* Minimum width to ensure form is still usable on smaller screens */
+}
+
+.form-column-full {
+    flex: 1 1 100%;
+    text-align: center;
+    padding: 10px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="url"],
+input[type="file"],
+input[type="email"],
+input[type="tel"],
+textarea {
+    width: calc(100% - 20px); /* Adjust width to fit within padding */
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+textarea {
+    height: 150px;
+}
+
+input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+/* Media Queries for Responsive Design */
+
+/* Small devices (phones, 600px and below) */
+@media (max-width: 600px) {
+    .job-form {
+        display: block; /* Stack the form elements vertically */
+    }
+    
+    .form-column {
+        width: 100%; /* Make each form column take full width */
+        padding: 10px 0; /* Adjust padding for better spacing */
+    }
+
+    .form-column-full {
+        width: 100%; /* Make submit button take full width */
+        padding: 10px 0;
+    }
+}
+
+/* Medium devices (tablets, 600px to 768px) */
+@media (min-width: 601px) and (max-width: 768px) {
+    .form-column {
+        flex: 1 1 50%; /* Make each form column take 50% of the width */
+        padding: 10px; /* Adjust padding for better spacing */
+    }
+
+    .form-column-full {
+        flex: 1 1 100%; /* Make submit button take full width */
+        text-align: center;
+        padding: 10px 0;
+    }
+}
+
+/* Large devices (desktops, 769px and up) */
+@media (min-width: 769px) {
+    .form-column {
+        flex: 1; /* Keep columns equal width */
+        padding: 10px;
+    }
+
+    .form-column-full {
+        flex: 1 1 100%; /* Make submit button take full width */
+        text-align: center;
+        padding: 10px 0;
+    }
+}
+</style>
 </head>
 
 <body>
@@ -132,23 +236,68 @@
     <div class="container-xxl py-5">
         <div class="container">
             <h1>Insert Job</h1>
-    <form action="https://printexinternational.com/job-post.php" method="POST">
-        <label for="title">Job Title:</label>
-        <input type="text" id="title" name="title" required><br><br>
-        <label for="company">Company Name:</label>
-        <input type="text" id="company" name="company" required><br><br>
-        <label for="location">Location:</label>
-        <input type="text" id="location" name="location" required><br><br>
-        <label for="description">Job Description:</label>
-        <textarea id="description" name="description" required></textarea><br><br>
-        <label for="posted_date">Posted Date:</label>
-        <input type="date" id="posted_date" name="posted_date" required><br><br>
-        <label for="apply_url">Apply URL:</label>
-        <input type="url" id="apply_url" name="apply_url" required><br><br>
-        <input type="submit" value="Insert Job">
-    </form>
+            <form action="https://printexinternational.com/job-post.php" method="POST" enctype="multipart/form-data" class="job-form" onsubmit="handleSubmit(event)">
+                <div class="form-column">
+                    <label for="title">Job Title:</label>
+                    <input type="text" id="title" name="title" required><br><br>
+
+                    <label for="company">Company Name:</label>
+                    <input type="text" id="company" name="company" required><br><br>
+
+                    <label for="location">Location:</label>
+                    <input type="text" id="location" name="location" required><br><br>
+
+                    <label for="description">Job Description:</label>
+                    <textarea id="description" name="description" required></textarea><br><br>
+                </div>
+                <div class="form-column">
+                    <label for="posted_date">Posted Date:</label>
+                    <input type="date" id="posted_date" name="posted_date" required><br><br>
+
+                    <label for="apply_url">Apply URL:</label>
+                    <input type="url" id="apply_url" name="apply_url" value="https://eduskill-demo.netlify.app/registration" required><br><br>
+
+                    <label for="pdf_link">PDF File:</label>
+                    <input type="file" id="pdf_link" name="pdf_link" accept="application/pdf" required><br><br>
+
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" value="career@eduskill.org" required><br><br>
+
+                    <label for="phone">Phone:</label>
+                    <input type="tel" id="phone" name="phone" value="9654807520" required><br><br>
+                </div>
+                <div class="form-column-full">
+                    <input type="submit" value="Insert Job">
+                </div>
+                <div id="message" class="form-column-full"></div>
+            </form>
         </div>
     </div>
+    <script>
+        async function handleSubmit(event) {
+            event.preventDefault();
+            
+            const form = event.target;
+            const formData = new FormData(form);
+            
+            const response = await fetch(form.action, {
+                method: form.method,
+                body: formData
+            });
+            
+            const result = await response.json();
+            
+            const messageDiv = document.getElementById('message');
+            if (result.message) {
+                messageDiv.textContent = result.message;
+                messageDiv.style.color = 'green';
+            } else {
+                messageDiv.textContent = result.error;
+                messageDiv.style.color = 'red';
+            }
+        }
+    </script>
+    
     <!-- Team End -->
         
 

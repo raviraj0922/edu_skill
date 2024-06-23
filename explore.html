@@ -117,18 +117,18 @@
         <div class="container py-5">
             <div class="search-row">
                 <h2 class="title-search">Retail Job Board<br>Connecting retail talent with great opportunities</h2>
-                <form method="GET" action="https://jobs.com/" class="quick-search form-inline d-sm-flex justify-content-sm-center">
+                <form method="GET" action="job-opening.html" class="quick-search form-inline d-sm-flex justify-content-sm-center">
                     <input type="hidden" value="search" name="page">
                     <input type="hidden" value="advanced_search" name="action">
                     <div class="form-group">
                         <div class="input-group input-group-lg">
-                            <input type="text" class="form-control" name="keywords" placeholder="Job Category" value="">
+                            <input type="text" class="form-control-search" name="keywords" placeholder="Job Category" value="">
                         </div>
                         <div class="findjob">Find jobs by category</div>
                     </div>
                     <div class="form-group">
                         <div class="input-group input-group-lg">
-                            <input type="text" class="form-control" name="city_state_zip" placeholder="City Name" value="" autocomplete="off">
+                            <input type="text" class="form-control-search" name="city_state_zip" placeholder="City Name" value="" autocomplete="off">
                         </div>
                         <div class="location">Enter location</div>
                         <div class="autocomplete-suggestions" style="position: absolute; display: none; max-height: 300px; z-index: 9999;"></div>
@@ -181,21 +181,6 @@
         </div>
     </div>
     <!-- Featured Companies Ends -->
-
-   <!-- ======= Breadcrumbs ======= -->
-   <section id="breadcrumbs" class="breadcrumbs">
-    <div class="container mt-4">
-
-      <div class="d-flex justify-content-between align-items-center">
-        <h2>Search Details</h2>
-        <ol>
-          <li><a href="index.html">Home</a></li>
-          <li>Search</li>
-        </ol>
-      </div>
-
-    </div>
-  </section><!-- End Breadcrumbs -->
 
   <!-- Featured Jobs -->
 <div class="container-job">
@@ -266,7 +251,7 @@ document.getElementById('subscription-form').addEventListener('submit', function
 });
 
 document.getElementById('show-more').addEventListener('click', function() {
-  window.location.href = 'more_jobs.html';
+  window.location.href = 'job-opening.html';
 });
 });
 </script>
