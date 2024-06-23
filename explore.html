@@ -201,14 +201,14 @@
     </div>
     <div class="employer">
         <h3>Are You An Employer?</h3>
-        <a href="/employer-offers" class="btn-job">Post a Job!</a>
+        <a href="post-job.html" class="btn-job">Post a Job!</a>
     </div>
 </div>
 </div>
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-fetch('https://printexinternational.com/jobs.php')
+fetch('https://printexinternational.com/job-post.php')
   .then(response => {
     if (!response.ok) {
       throw new Error('Network response was not ok ' + response.statusText);
@@ -225,16 +225,15 @@ fetch('https://printexinternational.com/jobs.php')
       const jobItem = document.createElement('div');
       jobItem.className = 'job-item';
       jobItem.innerHTML = `
-        <h3><a href="${job.apply_url}" target="_blank">${job.title}</a></h3>
-        <p>
-          <strong><i class="bi bi-building"></i> ${job.company}</strong> 
-          <span><i class="bi bi-geo-alt"></i> ${job.location}</span>
-        </p>
-        <p>${job.description.substring(0, 100)}...</p>
+        <h3><a href="${job.pdf_link}" target="_blank">${job.title}</a></h3>
+          <p><strong><i class="bi bi-building"></i> ${job.company}</strong> <span><i class="bi bi-geo-alt"></i> ${job.location}</span></p>
+          <p>${job.description.length > 100 ? job.description.substring(0, 100) + '...' : job.description}</p>
         <div class="job-footer">
-          <span>Posted - ${job.posted_date}</span>
-          <a href="${job.apply_url}" target="_blank">Apply Now</a>
-        </div>
+            <div>Posted - ${job.posted_date}</div>
+            <div>Email: <a href="mailto:${job.email}">${job.email}</a></div>
+            <div>Phone: ${job.phone}</div>
+            <a href="${job.apply_url}" class="btn-job">Apply Now</a>
+         </div>
       `;
       jobList.appendChild(jobItem);
     });
