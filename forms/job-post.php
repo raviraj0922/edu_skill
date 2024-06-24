@@ -1,5 +1,7 @@
 <?php
-$servername = "localhost:3306";
+header('Content-Type: application/json');
+
+$servername = "localhost";
 $username = "ranjeet055";
 $password = "ranjeetsingh@055";
 $dbname = "charu_02";
@@ -9,28 +11,65 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 
 // Check connection
 if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+    die(json_encode(["error" => "Connection failed: " . $conn->connect_error]));
 }
 
+// Initialize a variable to hold the response
+$response = ["message" => "", "error" => ""];
+
 // Check request method
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Insert data
-    $title = $_POST['title'];
-    $company = $_POST['company'];
-    $location = $_POST['location'];
-    $description = $_POST['description'];
-    $posted_date = $_POST['posted_date'];
-    $apply_url = $_POST['apply_url'];
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $target_dir = "uploads/";
+    $target_file = $target_dir . basename($_FILES["pdf_link"]["name"]);
+    $uploadOk = 1;
+    $fileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 
-    $stmt = $conn->prepare("INSERT INTO jobs (title, company, location, description, posted_date, apply_url) VALUES (?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param("ssssss", $title, $company, $location, $description, $posted_date, $apply_url);
-
-    if ($stmt->execute()) {
-        echo json_encode(["message" => "Job inserted successfully"]);
-    } else {
-        echo json_encode(["error" => "Error inserting job: " . $stmt->error]);
+    // Check if file is a actual PDF or fake PDF
+    if ($fileType != "pdf") {
+        $response["error"] = "Sorry, only PDF files are allowed.";
+        $uploadOk = 0;
     }
-    $stmt->close();
+
+    // Check if file already exists
+    if (file_exists($target_file)) {
+        $response["error"] = "Sorry, file already exists.";
+        $uploadOk = 0;
+    }
+
+    // Check file size (5MB limit)
+    if ($_FILES["pdf_link"]["size"] > 5000000) {
+        $response["error"] = "Sorry, your file is too large.";
+        $uploadOk = 0;
+    }
+
+    // Attempt to upload the file
+    if ($uploadOk == 1) {
+        if (move_uploaded_file($_FILES["pdf_link"]["tmp_name"], $target_file)) {
+            // Prepare and bind
+            $stmt = $conn->prepare("INSERT INTO jobs (title, company, location, description, posted_date, apply_url, pdf_link, email, phone) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            $stmt->bind_param("sssssssss", $title, $company, $location, $description, $posted_date, $apply_url, $pdf_link, $email, $phone);
+
+            // Set parameters and execute
+            $title = $_POST['title'];
+            $company = $_POST['company'];
+            $location = $_POST['location'];
+            $description = $_POST['description'];
+            $posted_date = $_POST['posted_date'];
+            $apply_url = isset($_POST['apply_url']) ? $_POST['apply_url'] : 'https://eduskill-demo.netlify.app/registration';
+            $pdf_link = $target_file;
+            $email = isset($_POST['email']) ? $_POST['email'] : 'career@eduskill.org';
+            $phone = isset($_POST['phone']) ? $_POST['phone'] : '9654807520';
+
+            if ($stmt->execute()) {
+                $response["message"] = "Job inserted successfully";
+            } else {
+                $response["error"] = "Error inserting job: " . $stmt->error;
+            }
+            $stmt->close();
+        } else {
+            $response["error"] = "Sorry, there was an error uploading your file.";
+        }
+    }
 } else {
     // Fetch the first 6 jobs
     $sql = "SELECT * FROM jobs LIMIT 6";
@@ -38,15 +77,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $jobs = [];
     if ($result->num_rows > 0) {
-        while($row = $result->fetch_assoc()) {
+        while ($row = $result->fetch_assoc()) {
             $jobs[] = $row;
         }
     }
     echo json_encode($jobs);
+    exit();
 }
 
 $conn->close();
-
-// Return data as JSON
-header('Content-Type: application/json');
+echo json_encode($response);
 ?>
