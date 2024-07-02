@@ -2,9 +2,9 @@
 header('Content-Type: application/json');
 
 $servername = "localhost";
-$username = "ranjeet055";
-$password = "ranjeetsingh@055";
-$dbname = "charu_02";
+$username = "career-retail";
+$password = "Retail.June@2024";
+$dbname = "retail_career";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -19,7 +19,7 @@ $response = ["message" => "", "error" => ""];
 
 // Check request method
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $target_dir = "uploads/";
+    $target_dir = "posted_job/";
     $target_file = $target_dir . basename($_FILES["pdf_link"]["name"]);
     $uploadOk = 1;
     $fileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
@@ -55,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $location = $_POST['location'];
             $description = $_POST['description'];
             $posted_date = $_POST['posted_date'];
-            $apply_url = isset($_POST['apply_url']) ? $_POST['apply_url'] : 'https://eduskill-demo.netlify.app/registration';
+            $apply_url = isset($_POST['apply_url']) ? $_POST['apply_url'] : 'http://retailcareer.org/registration.html';
             $pdf_link = $target_file;
             $email = isset($_POST['email']) ? $_POST['email'] : 'career@eduskill.org';
             $phone = isset($_POST['phone']) ? $_POST['phone'] : '9654807520';
