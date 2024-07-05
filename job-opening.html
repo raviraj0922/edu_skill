@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Edu Skill</title>
+    <title>Retail Career</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -31,11 +31,6 @@
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
     <style>
-        .section-bg {
-            background-color: #f8f9fa;
-            padding: 30px 0;
-        }
-
         .container-open {
             max-width: 1200px;
             margin: 0 auto;
@@ -61,6 +56,12 @@
             padding: 10px;
             width: 200px;
         }
+
+        #search-form select {
+            padding: 10px;
+            width: 100%;
+            max-width: 200px;
+        }        
         
         #search-btn {
             padding: 10px 20px;
@@ -152,8 +153,13 @@
         }
 
         @media (max-width: 992px) {
-            #search-form input {
+            #search-form input select {
                 width: 180px;
+            }
+
+            #serach-form select{
+                width: 100%;
+                flex: 1;
             }
 
             .job-item {
@@ -167,6 +173,10 @@
             }
 
             #search-form input {
+                width: 100%;
+            }
+
+            #serach-form select{
                 width: 100%;
             }
 
@@ -220,17 +230,17 @@
             <div class="col-lg-7 px-5 text-start">
                 <div class="h-100 d-inline-flex align-items-center py-3 me-4">
                     <small class="fa fa-map-marker-alt text-light me-2"></small>
-                    <small class="text-white">Offices: Santacruz ( E ) Mumbai, Maharashtra</small>
+                    <small class="text-white">Offices: Noida, Mumbai, Prayagraj</small>
                 </div>
                 <div class="h-100 d-inline-flex align-items-center py-3">
                     <small class="far fa-clock text-light me-2"></small>
-                    <small class="text-white">Mon - Fri : 09.00 AM - 09.00 PM</small>
+                    <small class="text-white">Mon - Sat : 09.30 AM - 06:00 PM</small>
                 </div>
             </div>
             <div class="col-lg-5 px-5 text-end">
                 <div class="h-100 d-inline-flex align-items-center py-3 me-4">
                     <small class="fa fa-phone-alt text-light me-2"></small>
-                    <small class="text-white">+91 7522802290</small>
+                    <small class="text-white">+91 7522802290, 8840767828</small>
                 </div>
                 <div class="h-100 d-inline-flex align-items-center">
                     <a class="btn btn-sm-square bg-white text-primary me-1" href=""><i class="fab fa-facebook-f"></i></a>
@@ -269,7 +279,13 @@
                         <a href="future-proof.html" class="dropdown-item">Future Proof</a> 
                     </div>
                 </div>
-                <a href="r-career.html" class="nav-item nav-link">R-Career</a>
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Career</a>
+                    <div class="dropdown-menu fade-up m-0">
+                        <a href="r-career.html" class="dropdown-item">R-Career</a>
+                        <a href="onboard.html" class="dropdown-item">Onboard</a>
+                    </div>
+                </div>
                 <a href="explore.html" class="nav-item nav-link active">Explore</a>
                 <a href="registration.html" class="nav-item nav-link">Apply Now</a>
             </div>
@@ -283,12 +299,22 @@
         <div class="container py-5">
             <div class="search-form">
                 <h2 class="job-title">Job Openings Everywhere</h2>
-                <form id="search-form" class="d-sm-flex justify-content-sm-center form-open">
-                  <input type="text" id="company" name="company" placeholder="Company Name">
-                  <input type="text" id="location" name="location" placeholder="Location">
-                  <input type="text" id="title" name="title" placeholder="Job Category">
-                    <button type="button" id="search-btn">Search</button>
-                </form>
+            <form id="search-form" class="d-sm-flex justify-content-sm-center form-open">
+                <input type="text" id="company" name="company" placeholder="Company Name">
+                <input type="text" id="location" name="location" placeholder="Location">
+                <select tyrpe="text" id="category" name="category">
+                    <option value="">Select Job Category</option>
+                    <option value="open_position">Open Positions</option>
+                    <option value="internship">Internship</option>
+                    <option value="full_time_jobs">Full Time Jobs</option>
+                    <option value="part_time_jobs">Part Time Jobs</option>
+                    <option value="externship">Externship</option>                            
+                    <option value="virtual_drive">Virtual Drive</option>
+                    <option value="walk_in">Walk IN</option>
+                    <!-- Add more categories as needed -->
+                </select>
+                <button type="button" id="search-btn">Search</button>
+            </form>
             </div>
         </div>
     </div>
@@ -298,140 +324,142 @@
     <!-- Projects Start -->
     <section class="section-bg">
       <div class="container-open">
+        <div class="section-title text-center"><h1 class="display-5 mb-5">Found Jobs</h1></div>
             <div class="job-lists pt-3" id="job-list">
-                <h2>Found Jobs</h2>
+                
                 <div id="job-items"></div>
                 <button id="show-more-btn" class="btn-open">Show More</button>
             </div>
     </div>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-         let offset = 0;
-         const limit = 6;
-         const showMoreBtn = document.getElementById('show-more-btn');
-         const searchBtn = document.getElementById('search-btn');
-     
-         function fetchJobs(reset = false) {
-             const company = document.getElementById('company').value;
-             const location = document.getElementById('location').value;
-             const title = document.getElementById('title').value;
-     
-             if (reset) {
-                 offset = 0;
-                 document.getElementById('job-items').innerHTML = '';
-             }
-     
-             fetch(`fetch_jobs.php?limit=${limit}&offset=${offset}&company=${company}&location=${location}&title=${title}`)
-                 .then(response => response.json())
-                 .then(data => {
-                     const jobItems = document.getElementById('job-items');
-                     data.jobs.forEach(job => {
-                         const jobItem = document.createElement('div');
-                         jobItem.className = 'job-item';
-                         jobItem.innerHTML = `
-                             <h3><a href="${job.pdf_link}" target="_blank">${job.title}</a></h3>
-                             <p><strong><i class="bi bi-building"></i> ${job.company}</strong> <span><i class="bi bi-geo-alt"></i> ${job.location}</span></p>
-                             <p>${job.description.length > 100 ? job.description.substring(0, 100) + '...' : job.description}</p>
-                             <div class="job-footer">
-                                 <div>Posted - ${job.posted_date}</div>
-                                 <div>Email: <a href="mailto:${job.email}">${job.email}</a></div>
-                                 <div>Phone: ${job.phone}</div>
-                                 <a href="${job.apply_url}" class="btn-job">Apply Now</a>
-                             </div>
-                         `;
-                         jobItems.appendChild(jobItem);
-                     });
-     
-                     offset += limit;
-                     if (reset) {
-                         const totalJobsText = document.createElement('p');
-                         totalJobsText.textContent = `Total Jobs Found: ${data.total}`;
-                         const jobList = document.getElementById('job-list');
-                         const existingTotalText = jobList.querySelector('.total-jobs-found');
-                         if (existingTotalText) {
-                             existingTotalText.remove();
-                         }
-                         totalJobsText.classList.add('total-jobs-found');
-                         jobList.insertBefore(totalJobsText, jobList.firstChild);
-                     }
-                 })
-                 .catch(error => console.error('Error fetching jobs:', error));
-         }
-     
-         searchBtn.addEventListener('click', function() {
-             fetchJobs(true);
-         });
-     
-         showMoreBtn.addEventListener('click', function() {
-             fetchJobs();
-         });
-     
-         // Initial fetch
-         fetchJobs();
-     });
-     </script>
+    document.addEventListener('DOMContentLoaded', function() {
+    let offset = 0;
+    const limit = 6;
+    const showMoreBtn = document.getElementById('show-more-btn');
+    const searchBtn = document.getElementById('search-btn');
+
+    function fetchJobs(reset = false) {
+        const company = document.getElementById('company').value;
+        const location = document.getElementById('location').value;
+        const category = document.getElementById('category').value;
+
+        if (reset) {
+            offset = 0;
+            document.getElementById('job-items').innerHTML = '';
+        }
+
+        fetch(`forms/fetch_jobs.php?limit=${limit}&offset=${offset}&company=${company}&location=${location}&category=${category}`)
+            .then(response => response.json())
+            .then(data => {
+                const jobItems = document.getElementById('job-items');
+                data.jobs.forEach(job => {
+                    const jobItem = document.createElement('div');
+                    jobItem.className = 'job-item';
+                    const pdfLink = `forms/${job.pdf_link}`;
+                    jobItem.innerHTML = `
+                        <h3 class="job-footer"><a href="${pdfLink}" target="_blank">${job.title}</a> <span><i class="bi bi-tag"></i> ${job.category}</span></h3>
+                        <p><strong><i class="bi bi-building"></i> ${job.company}</strong> <span><i class="bi bi-geo-alt"></i> ${job.location}</span></p>
+                        <p>${job.description.length > 100 ? job.description.substring(0, 100) + '...' : job.description} <a href="${pdfLink}" target="_blank">Click here for detail</a></p>
+                        <div class="job-footer">
+                            <div>Posted - ${job.posted_date}</div>
+                            <div>Email: <a href="mailto:${job.email}">${job.email}</a></div>
+                            <div>Phone: ${job.phone}</div>
+                            <a href="${job.apply_url}" class="btn-job">Apply Now</a>
+                        </div>
+                    `;
+                    jobItems.appendChild(jobItem);
+                });
+
+                offset += limit;
+                if (reset) {
+                    const totalJobsText = document.createElement('p');
+                    totalJobsText.textContent = `Total Jobs Found: ${data.total}`;
+                    const jobList = document.getElementById('job-list');
+                    const existingTotalText = jobList.querySelector('.total-jobs-found');
+                    if (existingTotalText) {
+                        existingTotalText.remove();
+                    }
+                    totalJobsText.classList.add('total-jobs-found');
+                    jobList.insertBefore(totalJobsText, jobList.firstChild);
+                }
+            })
+            .catch(error => console.error('Error fetching jobs:', error));
+    }
+
+    searchBtn.addEventListener('click', function() {
+        fetchJobs(true);
+    });
+
+    showMoreBtn.addEventListener('click', function() {
+        fetchJobs();
+    });
+
+    // Initial fetch
+    fetchJobs();
+    });
+    </script>
     </section>
     <!-- Projects End -->
         
-
-    <!-- Footer Start -->
-    <div class="container-fluid bg-dark text-light footer mt-5 pt-5 wow fadeIn" data-wow-delay="0.1s">
-        <div class="container py-5">
-            <div class="row g-5">
-                <div class="col-lg-3 col-md-6">
-                    <h4 class="text-light mb-4">Address</h4>
-                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>123 Street, New York, USA</p>
-                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+012 345 67890</p>
-                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@example.com</p>
-                    <div class="d-flex pt-2">
-                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
-                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-youtube"></i></a>
-                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-linkedin-in"></i></a>
-                    </div>
+<!-- Footer Start -->
+<div class="container-fluid bg-dark text-light footer mt-5 pt-5 wow fadeIn" data-wow-delay="0.1s">
+    <div class="container py-5">
+        <div class="row g-5">
+            <div class="col-lg-3 col-md-6">
+                <h4 class="text-light mb-4">Contact Us</h4>
+                <p class="mb-1 footer-text"><i class="fa fa-map-marker-alt me-3"></i>Noida WTT- 16th Floor, World Trade Tower, Tower B, Sector-16, Noida, Uttar Pradesh, India 201301</p>
+                <p class="mb-2 footer-text"><i class="fa fa-map-marker-alt me-3"></i>Mumbai ECE- Shikshalay, Aaram Society Rd, Hind Nagar, Vakola Market, Santacruz East, Mumbai, Maharashtra, India 400055</p>
+                <p class="mb-2 footer-text"><i class="fa fa-map-marker-alt me-3"></i>Prayagraj HQ- MIG-84, Preetam Nagar Colony, Prayagraj, Uttar Pradesh 211011</p>
+                <!-- <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+91 7522802290</p>
+                <p class="mb-2"><i class="fa fa-envelope me-3"></i>career@eduskill.org </p> -->
+                <!-- <div class="d-flex pt-2">
+                    <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
+                    <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-youtube"></i></a>
+                    <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-linkedin-in"></i></a>
+                </div> -->
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <h4 class="text-light mb-4">Quick Links</h4>
+                <a class="btn btn-link" href="">Media Block</a>
+                <a class="btn btn-link" href="">Board of Directors</a>
+                <a class="btn btn-link" href="">Terms & Condition</a>
+                <a class="btn btn-link" href="">Privacy Policy</a>
+                <a class="btn btn-link" href="">Discloser Statement</a>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <h4 class="text-light mb-4">Discover</h4>
+                <a class="btn btn-link" href="">Service</a>
+                <a class="btn btn-link" href="">Programs</a>
+                <a class="btn btn-link" href="">Industry Trends</a>
+                <a class="btn btn-link" href="">Upcomming Events</a>
+                <a class="btn btn-link" href="">Support</a>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <h4 class="text-light mb-4">Newsletter</h4>
+                <p class="footer-text">Sign up for our newsletters to be informed about all the latest news and events</p>
+                <div class="position-relative mx-auto" style="max-width: 400px;">
+                    <input class="form-control border-0 w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
+                    <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
                 </div>
-                <div class="col-lg-3 col-md-6">
-                    <h4 class="text-light mb-4">Services</h4>
-                    <a class="btn btn-link" href="">General Carpentry</a>
-                    <a class="btn btn-link" href="">Furniture Remodeling</a>
-                    <a class="btn btn-link" href="">Wooden Floor</a>
-                    <a class="btn btn-link" href="">Wooden Furniture</a>
-                    <a class="btn btn-link" href="">Custom Carpentry</a>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <h4 class="text-light mb-4">Quick Links</h4>
-                    <a class="btn btn-link" href="">About Us</a>
-                    <a class="btn btn-link" href="">Contact Us</a>
-                    <a class="btn btn-link" href="">Our Services</a>
-                    <a class="btn btn-link" href="">Terms & Condition</a>
-                    <a class="btn btn-link" href="">Support</a>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <h4 class="text-light mb-4">Newsletter</h4>
-                    <p>Dolor amet sit justo amet elitr clita ipsum elitr est.</p>
-                    <div class="position-relative mx-auto" style="max-width: 400px;">
-                        <input class="form-control border-0 w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
-                        <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
-                    </div>
-                </div>
+                <p class="mb-2 mt-3"><i class="fa fa-phone-alt me-3"></i>+91 7522802290, 7985417515, 8840767828</p>
+                <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@retailcareer.org</p>
             </div>
         </div>
-        <div class="container">
-            <div class="copyright">
-                <div class="row">
-                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                        &copy; <a class="border-bottom" href="#">Your Site Name</a>, All Right Reserved.
-                    </div>
-                    <div class="col-md-6 text-center text-md-end">
-                        <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
-                        Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a>
-                    </div>
+    </div>
+    <div class="container">
+        <div class="copyright">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                    &copy; <a class="border-bottom" href="#">© Evoxel</a>, All Right Reserved.  Last updated: June 2024</div>
+                <div class="col-md-6 text-center text-md-end">
+                    Designed By <a href="https://github.com/raviraj0922"> <i class="bx bi-github"></i> </a>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Footer End -->
-
+</div>
+<!-- Footer End -->
 
     <!-- Back to Top -->
     <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-0 back-to-top"><i class="bi bi-arrow-up"></i></a>

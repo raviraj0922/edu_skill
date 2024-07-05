@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Edu Skill</title>
+    <title>Retail Career</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -31,10 +31,7 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
-    <style>
-       
-       
-    </style>
+
 </head>
 
 <body>
@@ -53,17 +50,17 @@
             <div class="col-lg-7 px-5 text-start">
                 <div class="h-100 d-inline-flex align-items-center py-3 me-4">
                     <small class="fa fa-map-marker-alt text-light me-2"></small>
-                    <small class="text-white">Offices: Santacruz ( E ) Mumbai, Maharashtra</small>
+                    <small class="text-white">Offices: Noida, Mumbai, Prayagraj</small>
                 </div>
                 <div class="h-100 d-inline-flex align-items-center py-3">
                     <small class="far fa-clock text-light me-2"></small>
-                    <small class="text-white">Mon - Fri : 09.00 AM - 09.00 PM</small>
+                    <small class="text-white">Mon - Sat : 09.30 AM - 06:00 PM</small>
                 </div>
             </div>
             <div class="col-lg-5 px-5 text-end">
                 <div class="h-100 d-inline-flex align-items-center py-3 me-4">
                     <small class="fa fa-phone-alt text-light me-2"></small>
-                    <small class="text-white">+91 7522802290</small>
+                    <small class="text-white">+91 7522802290, 8840767828</small>
                 </div>
                 <div class="h-100 d-inline-flex align-items-center">
                     <a class="btn btn-sm-square bg-white text-primary me-1" href=""><i class="fab fa-facebook-f"></i></a>
@@ -102,7 +99,13 @@
                         <a href="future-proof.html" class="dropdown-item">Future Proof</a> 
                     </div>
                 </div>
-                <a href="r-career.html" class="nav-item nav-link">R-Career</a>
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Career</a>
+                    <div class="dropdown-menu fade-up m-0">
+                        <a href="r-career.html" class="dropdown-item">R-Career</a>
+                        <a href="onboard.html" class="dropdown-item">Onboard</a>
+                    </div>
+                </div>
                 <a href="explore.html" class="nav-item nav-link active">Explore</a>
                 <a href="registration.html" class="nav-item nav-link">Apply Now</a>
             </div>
@@ -185,9 +188,9 @@
   <!-- Featured Jobs -->
 <div class="container-job">
 <div class="main-content">
-    <h2>Featured Jobs</h2>
+    <h2 class="display-5 mb-4">Featured Jobs</h2>
     <div id="job-list" class="job-list"></div>
-    <button id="show-more" class="btn-job">Show More</button>
+    <button id="show-more" class="btn-job mt-4">Show More</button>
 </div>
 <div class="sidebar">
     <div class="newsletter">
@@ -207,58 +210,60 @@
 </div>
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-fetch('https://printexinternational.com/job-post.php')
-  .then(response => {
-    if (!response.ok) {
-      throw new Error('Network response was not ok ' + response.statusText);
-    }
-    return response.json();
-  })
-  .then(jobs => {
-    const jobList = document.getElementById('job-list');
-    if (jobs.length === 0) {
-      jobList.innerHTML = '<p>No jobs available at the moment.</p>';
-      return;
-    }
-    jobs.forEach(job => {
-      const jobItem = document.createElement('div');
-      jobItem.className = 'job-item';
-      jobItem.innerHTML = `
-        <h3><a href="${job.pdf_link}" target="_blank">${job.title}</a></h3>
-          <p><strong><i class="bi bi-building"></i> ${job.company}</strong> <span><i class="bi bi-geo-alt"></i> ${job.location}</span></p>
-          <p>${job.description.length > 100 ? job.description.substring(0, 100) + '...' : job.description}</p>
-        <div class="job-footer">
-            <div>Posted - ${job.posted_date}</div>
-            <div>Email: <a href="mailto:${job.email}">${job.email}</a></div>
-            <div>Phone: ${job.phone}</div>
-            <a href="${job.apply_url}" class="btn-job">Apply Now</a>
-         </div>
-      `;
-      jobList.appendChild(jobItem);
+    document.addEventListener('DOMContentLoaded', function() {
+    fetch('forms/job-post.php')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok ' + response.statusText);
+        }
+        return response.json();
+      })
+      .then(jobs => {
+        const jobList = document.getElementById('job-list');
+        if (jobs.length === 0) {
+          jobList.innerHTML = '<p>No jobs available at the moment.</p>';
+          return;
+        }
+        jobs.forEach(job => {
+          const jobItem = document.createElement('div');
+          jobItem.className = 'job-item';
+          const pdfLink = `forms/${job.pdf_link}`;
+          jobItem.innerHTML = `
+            <h3><a href="${pdfLink}" target="_blank">${job.title}</a></h3>
+              <p><strong><i class="bi bi-building"></i> ${job.company}</strong> <span><i class="bi bi-geo-alt"></i> ${job.location}</span></p>
+              <p>${job.description.length > 100 ? job.description.substring(0, 100) + '...' : job.description}</p>
+            <div class="job-footer">
+                <div>Posted - ${job.posted_date}</div>
+                <div>Email: <a href="mailto:${job.email}">${job.email}</a></div>
+                <div>Phone: ${job.phone}</div>
+                <a href="${job.apply_url}" class="btn-job">Apply Now</a>
+             </div>
+          `;
+          jobList.appendChild(jobItem);
+        });
+      })
+      .catch(error => {
+        console.error('Error fetching jobs:', error);
+        const jobList = document.getElementById('job-list');
+        jobList.innerHTML = '<p>Sorry, we are unable to load the job listings at the moment. Please try again later.</p>';
+      });
+    
+    document.getElementById('subscription-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+      alert('Thank you for subscribing!');
     });
-  })
-  .catch(error => {
-    console.error('Error fetching jobs:', error);
-    const jobList = document.getElementById('job-list');
-    jobList.innerHTML = '<p>Sorry, we are unable to load the job listings at the moment. Please try again later.</p>';
-  });
-
-document.getElementById('subscription-form').addEventListener('submit', function(event) {
-  event.preventDefault();
-  alert('Thank you for subscribing!');
-});
-
-document.getElementById('show-more').addEventListener('click', function() {
-  window.location.href = 'job-opening.html';
-});
-});
-</script>
+    
+    document.getElementById('show-more').addEventListener('click', function() {
+      window.location.href = 'job-opening.html';
+    });
+    });
+    </script>
 
 <!-- Featured Jobs -->
 
-<navi>
+<bar-nav>
     <div class="nav-container">
+        <div class="text-center"><h1 class="display-5 mb-5"></h1></div>
         <div class="nav-header">
             <div class="nav-toggle" id="nav-toggle">
                 <div class="bar"></div>
@@ -276,7 +281,7 @@ document.getElementById('show-more').addEventListener('click', function() {
             <li><a href="#walk-in" data-content="walk-IN.html">Walk IN</a></li>
         </ul>
     </div>
-</navi>
+</bar-nav>
 <div id="content">
     <!-- Dynamic content will be displayed here -->
 </div>
@@ -343,10 +348,11 @@ document.getElementById('show-more').addEventListener('click', function() {
             <div class="row g-5">
                 <div class="col-lg-3 col-md-6">
                     <h4 class="text-light mb-4">Contact Us</h4>
-                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Offices: Santacruz ( E ) Mumbai, Maharashtra</p>
-                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Head Office: Prayagraj, Uttar Pradesh</p>
-                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+91 7522802290</p>
-                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>career@eduskill.org </p>
+                    <p class="mb-1 footer-text"><i class="fa fa-map-marker-alt me-3"></i>Noida WTT- 16th Floor, World Trade Tower, Tower B, Sector-16, Noida, Uttar Pradesh, India 201301</p>
+                    <p class="mb-2 footer-text"><i class="fa fa-map-marker-alt me-3"></i>Mumbai ECE- Shikshalay, Aaram Society Rd, Hind Nagar, Vakola Market, Santacruz East, Mumbai, Maharashtra, India 400055</p>
+                    <p class="mb-2 footer-text"><i class="fa fa-map-marker-alt me-3"></i>Prayagraj HQ- MIG-84, Preetam Nagar Colony, Prayagraj, Uttar Pradesh 211011</p>
+                    <!-- <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+91 7522802290</p>
+                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>career@eduskill.org </p> -->
                     <!-- <div class="d-flex pt-2">
                         <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
                         <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
@@ -372,11 +378,13 @@ document.getElementById('show-more').addEventListener('click', function() {
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <h4 class="text-light mb-4">Newsletter</h4>
-                    <p>Dolor amet sit justo amet elitr clita ipsum elitr est.</p>
+                    <p class="footer-text">Sign up for our newsletters to be informed about all the latest news and events</p>
                     <div class="position-relative mx-auto" style="max-width: 400px;">
                         <input class="form-control border-0 w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
                         <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
                     </div>
+                    <p class="mb-2 mt-3"><i class="fa fa-phone-alt me-3"></i>+91 7522802290, 7985417515, 8840767828</p>
+                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@retailcareer.org</p>
                 </div>
             </div>
         </div>
@@ -384,8 +392,7 @@ document.getElementById('show-more').addEventListener('click', function() {
             <div class="copyright">
                 <div class="row">
                     <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                        &copy; <a class="border-bottom" href="#">Edu Skill</a>, All Right Reserved.
-                    </div>
+                        &copy; <a class="border-bottom" href="#">© Evoxel</a>, All Right Reserved.  Last updated: June 2024</div>
                     <div class="col-md-6 text-center text-md-end">
                         Designed By <a href="https://github.com/raviraj0922"> <i class="bx bi-github"></i> </a>
                     </div>
@@ -394,7 +401,6 @@ document.getElementById('show-more').addEventListener('click', function() {
         </div>
     </div>
     <!-- Footer End -->
-
 
     <!-- Back to Top -->
     <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-0 back-to-top"><i class="bi bi-arrow-up"></i></a>

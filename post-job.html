@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Edu Skill</title>
+    <title>Retail Career</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -32,113 +32,135 @@
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
     <style>
-    .container-xxl {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-.job-form {
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.form-column {
-    flex: 1;
-    padding: 10px;
-    min-width: 300px; /* Minimum width to ensure form is still usable on smaller screens */
-}
-
-.form-column-full {
-    flex: 1 1 100%;
-    text-align: center;
-    padding: 10px;
-}
-
-label {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 5px;
-}
-
-input[type="text"],
-input[type="date"],
-input[type="url"],
-input[type="file"],
-input[type="email"],
-input[type="tel"],
-textarea {
-    width: calc(100% - 20px); /* Adjust width to fit within padding */
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-textarea {
-    height: 150px;
-}
-
-input[type="submit"] {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-input[type="submit"]:hover {
-    background-color: #45a049;
-}
-
-/* Media Queries for Responsive Design */
-
-/* Small devices (phones, 600px and below) */
-@media (max-width: 600px) {
-    .job-form {
-        display: block; /* Stack the form elements vertically */
-    }
-    
-    .form-column {
-        width: 100%; /* Make each form column take full width */
-        padding: 10px 0; /* Adjust padding for better spacing */
-    }
-
-    .form-column-full {
-        width: 100%; /* Make submit button take full width */
-        padding: 10px 0;
-    }
-}
-
-/* Medium devices (tablets, 600px to 768px) */
-@media (min-width: 601px) and (max-width: 768px) {
-    .form-column {
-        flex: 1 1 50%; /* Make each form column take 50% of the width */
-        padding: 10px; /* Adjust padding for better spacing */
-    }
-
-    .form-column-full {
-        flex: 1 1 100%; /* Make submit button take full width */
-        text-align: center;
-        padding: 10px 0;
-    }
-}
-
-/* Large devices (desktops, 769px and up) */
-@media (min-width: 769px) {
-    .form-column {
-        flex: 1; /* Keep columns equal width */
-        padding: 10px;
-    }
-
-    .form-column-full {
-        flex: 1 1 100%; /* Make submit button take full width */
-        text-align: center;
-        padding: 10px 0;
-    }
-}
-</style>
+        .container-xxl {
+         max-width: 1200px;
+         margin: 0 auto;
+     }
+     
+     h1 {
+         text-align: center;
+         margin-bottom: 20px;
+     }
+     
+     .job-form {
+         display: flex;
+         flex-wrap: wrap;
+     }
+     
+     .form-column, .form-column-full {
+         flex: 1;
+         min-width: 300px;
+         padding: 10px;
+         box-sizing: border-box;
+     }
+     
+     .form-column-full {
+         flex-basis: 100%;
+     }
+     
+     label {
+         display: block;
+         margin-bottom: 5px;
+         font-weight: bold;
+     }
+     
+     input[type="text"],
+     input[type="date"],
+     input[type="url"],
+     input[type="email"],
+     input[type="tel"],
+     input[type="file"],
+     textarea,
+     select {
+         width: 100%;
+         padding: 8px;
+         margin-bottom: 15px;
+         border: 1px solid #ccc;
+         border-radius: 4px;
+     }
+     
+     textarea {
+         height: 100px;
+     }
+     
+     input[type="submit"] {
+         width: 100px;
+         background-color: #007bff;
+         color: white;
+         padding: 10px;
+         border: none;
+         border-radius: 4px;
+         cursor: pointer;
+     }
+     
+     input[type="submit"]:hover {
+         background-color: #0056b3;
+     }
+     
+     #message {
+         text-align: center;
+         margin-top: 20px;
+         font-size: 16px;
+     }
+     
+     .center {
+         text-align: center;
+     }
+     
+     .center label {
+         display: inline-block;
+         margin: 0;
+         font-weight: normal;
+     }
+     
+     /* Media Queries for Responsive Design */
+     
+     /* Small devices (phones, 600px and below) */
+     @media (max-width: 600px) {
+         .job-form {
+             display: block; /* Stack the form elements vertically */
+         }
+         
+         .form-column {
+             width: 100%; /* Make each form column take full width */
+             padding: 10px 0; /* Adjust padding for better spacing */
+         }
+     
+         .form-column-full {
+             width: 100%; /* Make submit button take full width */
+             text-align: center;
+             padding: 10px 0;
+         }
+     }
+     
+     /* Medium devices (tablets, 600px to 768px) */
+     @media (min-width: 601px) and (max-width: 768px) {
+         .form-column {
+             flex: 1 1 50%; /* Make each form column take 50% of the width */
+             padding: 10px; /* Adjust padding for better spacing */
+         }
+     
+         .form-column-full {
+             flex: 1 1 100%; /* Make submit button take full width */
+             text-align: center;
+             padding: 10px 0;
+         }
+     }
+     
+     /* Large devices (desktops, 769px and up) */
+     @media (min-width: 769px) {
+         .form-column {
+             flex: 1; /* Keep columns equal width */
+             padding: 10px;
+         }
+     
+         .form-column-full {
+             flex: 1 1 100%; /* Make submit button take full width */
+             text-align: center;
+             padding: 10px 0;
+         }
+     }
+         </style>
 </head>
 
 <body>
@@ -157,17 +179,17 @@ input[type="submit"]:hover {
             <div class="col-lg-7 px-5 text-start">
                 <div class="h-100 d-inline-flex align-items-center py-3 me-4">
                     <small class="fa fa-map-marker-alt text-light me-2"></small>
-                    <small class="text-white">Offices: Santacruz ( E ) Mumbai, Maharashtra</small>
+                    <small class="text-white">Offices: Noida, Mumbai, Prayagraj</small>
                 </div>
                 <div class="h-100 d-inline-flex align-items-center py-3">
                     <small class="far fa-clock text-light me-2"></small>
-                    <small class="text-white">Mon - Fri : 09.00 AM - 09.00 PM</small>
+                    <small class="text-white">Mon - Sat : 09.30 AM - 06:00 PM</small>
                 </div>
             </div>
             <div class="col-lg-5 px-5 text-end">
                 <div class="h-100 d-inline-flex align-items-center py-3 me-4">
                     <small class="fa fa-phone-alt text-light me-2"></small>
-                    <small class="text-white">+91 7522802290</small>
+                    <small class="text-white">+91 7522802290, 8840767828</small>
                 </div>
                 <div class="h-100 d-inline-flex align-items-center">
                     <a class="btn btn-sm-square bg-white text-primary me-1" href=""><i class="fab fa-facebook-f"></i></a>
@@ -206,7 +228,13 @@ input[type="submit"]:hover {
                         <a href="future-proof.html" class="dropdown-item">Future Proof</a> 
                     </div>
                 </div>
-                <a href="r-career.html" class="nav-item nav-link">R-Career</a>
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Career</a>
+                    <div class="dropdown-menu fade-up m-0">
+                        <a href="r-career.html" class="dropdown-item">R-Career</a>
+                        <a href="onboard.html" class="dropdown-item">Onboard</a>
+                    </div>
+                </div>
                 <a href="explore.html" class="nav-item nav-link">Explore</a>
                 <a href="registration.html" class="nav-item nav-link">Apply Now</a>
             </div>
@@ -223,7 +251,6 @@ input[type="submit"]:hover {
             <nav aria-label="breadcrumb animated slideInDown">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a class="text-white" href="#">Home</a></li>
-                    <li class="breadcrumb-item"><a class="text-white" href="#">Pages</a></li>
                     <li class="breadcrumb-item text-white active" aria-current="page">job Post</li>
                 </ol>
             </nav>
@@ -235,27 +262,40 @@ input[type="submit"]:hover {
     <!-- Team Start -->
     <div class="container-xxl py-5">
         <div class="container">
-            <h1>Insert Job</h1>
-            <form action="https://printexinternational.com/job-post.php" method="POST" enctype="multipart/form-data" class="job-form" onsubmit="handleSubmit(event)">
+            <div class="section-title text-center">
+            <h1 class="display-8">Insert Job</h1>
+            </div>
+            <form action="forms/job-post.php" method="POST" enctype="multipart/form-data" class="job-form" onsubmit="handleSubmit(event)">
                 <div class="form-column">
-                    <label for="title">Job Title:</label>
-                    <input type="text" id="title" name="title" required><br><br>
+                    <label for="category">Job Category:</label>
+                        <select id="category" name="category" required>
+                            <option value="">Select Category</option>
+                            <option value="open_position">Open Positions</option>
+                            <option value="internship">Internship</option>
+                            <option value="full_time_jobs">Full Time Jobs</option>
+                            <option value="part_time_jobs">Part Time Jobs</option>
+                            <option value="externship">Externship</option>                            
+                            <option value="virtual_drive">Virtual Drive</option>
+                            <option value="walk_in">Walk IN</option>
+                        </select><br>
 
+                    <label for="title">Job Title:</label>
+                    <input type="text" id="title" name="title" required><br>
                     <label for="company">Company Name:</label>
-                    <input type="text" id="company" name="company" required><br><br>
+                    <input type="text" id="company" name="company" required><br>
 
                     <label for="location">Location:</label>
-                    <input type="text" id="location" name="location" required><br><br>
+                    <input type="text" id="location" name="location" required><br>
 
                     <label for="description">Job Description:</label>
-                    <textarea id="description" name="description" required></textarea><br><br>
+                    <textarea id="description" name="description" required></textarea><br>
                 </div>
                 <div class="form-column">
                     <label for="posted_date">Posted Date:</label>
                     <input type="date" id="posted_date" name="posted_date" required><br><br>
 
                     <label for="apply_url">Apply URL:</label>
-                    <input type="url" id="apply_url" name="apply_url" value="https://eduskill-demo.netlify.app/registration" required><br><br>
+                    <input type="url" id="apply_url" name="apply_url" value="http://retailcareer.org/registration.html" required><br><br>
 
                     <label for="pdf_link">PDF File:</label>
                     <input type="file" id="pdf_link" name="pdf_link" accept="application/pdf" required><br><br>
@@ -301,16 +341,17 @@ input[type="submit"]:hover {
     <!-- Team End -->
         
 
-     <!-- Footer Start -->
-     <div class="container-fluid bg-dark text-light footer mt-5 pt-5 wow fadeIn" data-wow-delay="0.1s">
+    <!-- Footer Start -->
+    <div class="container-fluid bg-dark text-light footer mt-5 pt-5 wow fadeIn" data-wow-delay="0.1s">
         <div class="container py-5">
             <div class="row g-5">
                 <div class="col-lg-3 col-md-6">
                     <h4 class="text-light mb-4">Contact Us</h4>
-                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Offices: Santacruz ( E ) Mumbai, Maharashtra</p>
-                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Head Office: Prayagraj, Uttar Pradesh</p>
-                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+91 7522802290</p>
-                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>career@eduskill.org </p>
+                    <p class="mb-1 footer-text"><i class="fa fa-map-marker-alt me-3"></i>Noida WTT- 16th Floor, World Trade Tower, Tower B, Sector-16, Noida, Uttar Pradesh, India 201301</p>
+                    <p class="mb-2 footer-text"><i class="fa fa-map-marker-alt me-3"></i>Mumbai ECE- Shikshalay, Aaram Society Rd, Hind Nagar, Vakola Market, Santacruz East, Mumbai, Maharashtra, India 400055</p>
+                    <p class="mb-2 footer-text"><i class="fa fa-map-marker-alt me-3"></i>Prayagraj HQ- MIG-84, Preetam Nagar Colony, Prayagraj, Uttar Pradesh 211011</p>
+                    <!-- <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+91 7522802290</p>
+                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>career@eduskill.org </p> -->
                     <!-- <div class="d-flex pt-2">
                         <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
                         <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
@@ -336,11 +377,13 @@ input[type="submit"]:hover {
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <h4 class="text-light mb-4">Newsletter</h4>
-                    <p>Dolor amet sit justo amet elitr clita ipsum elitr est.</p>
+                    <p class="footer-text">Sign up for our newsletters to be informed about all the latest news and events</p>
                     <div class="position-relative mx-auto" style="max-width: 400px;">
                         <input class="form-control border-0 w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
                         <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
                     </div>
+                    <p class="mb-2 mt-3"><i class="fa fa-phone-alt me-3"></i>+91 7522802290, 7985417515, 8840767828</p>
+                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@retailcareer.org</p>
                 </div>
             </div>
         </div>
@@ -348,8 +391,7 @@ input[type="submit"]:hover {
             <div class="copyright">
                 <div class="row">
                     <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                        &copy; <a class="border-bottom" href="#">Edu Skill</a>, All Right Reserved.
-                    </div>
+                        &copy; <a class="border-bottom" href="#">© Evoxel</a>, All Right Reserved.  Last updated: June 2024</div>
                     <div class="col-md-6 text-center text-md-end">
                         Designed By <a href="https://github.com/raviraj0922"> <i class="bx bi-github"></i> </a>
                     </div>
@@ -358,7 +400,6 @@ input[type="submit"]:hover {
         </div>
     </div>
     <!-- Footer End -->
-
 
     <!-- Back to Top -->
     <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-0 back-to-top"><i class="bi bi-arrow-up"></i></a>
