@@ -46,10 +46,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if ($uploadOk == 1) {
         if (move_uploaded_file($_FILES["pdf_link"]["tmp_name"], $target_file)) {
             // Prepare and bind
-            $stmt = $conn->prepare("INSERT INTO jobs (title, company, location, description, posted_date, apply_url, pdf_link, email, phone) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
-            $stmt->bind_param("sssssssss", $title, $company, $location, $description, $posted_date, $apply_url, $pdf_link, $email, $phone);
+            $stmt = $conn->prepare("INSERT INTO jobs (category, title, company, location, description, posted_date, apply_url, pdf_link, email, phone) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            $stmt->bind_param("ssssssssss", $category, $title, $company, $location, $description, $posted_date, $apply_url, $pdf_link, $email, $phone);
 
             // Set parameters and execute
+            $category = $_POST['category']; // <-- Missing semicolon fixed here
             $title = $_POST['title'];
             $company = $_POST['company'];
             $location = $_POST['location'];

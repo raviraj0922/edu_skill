@@ -16,25 +16,44 @@ $limit = intval($_GET['limit']);
 $offset = intval($_GET['offset']);
 $company = isset($_GET['company']) ? $_GET['company'] : '';
 $location = isset($_GET['location']) ? $_GET['location'] : '';
-$title = isset($_GET['title']) ? $_GET['title'] : '';
+$category = isset($_GET['category']) ? $_GET['category'] : '';
 
 // Base query
 $query = "SELECT SQL_CALC_FOUND_ROWS * FROM jobs WHERE 1=1";
 
+// Parameters array
+$params = [];
+$types = "";
+
 // Add filters
 if (!empty($company)) {
-    $query .= " AND company LIKE '%$company%'";
+    $query .= " AND company LIKE ?";
+    $params[] = "%$company%";
+    $types .= "s";
 }
 if (!empty($location)) {
-    $query .= " AND location LIKE '%$location%'";
+    $query .= " AND location LIKE ?";
+    $params[] = "%$location%";
+    $types .= "s";
 }
-if (!empty($title)) {
-    $query .= " AND title LIKE '%$title%'";
+if (!empty($category)) {
+    $query .= " AND category LIKE ?";
+    $params[] = "%$category%";
+    $types .= "s";
 }
 
-$query .= " LIMIT $limit OFFSET $offset";
+$query .= " LIMIT ? OFFSET ?";
+$params[] = $limit;
+$params[] = $offset;
+$types .= "ii";
 
-$result = $conn->query($query);
+// Prepare and bind
+$stmt = $conn->prepare($query);
+$stmt->bind_param($types, ...$params);
+
+// Execute and get result
+$stmt->execute();
+$result = $stmt->get_result();
 
 // Fetch total number of results
 $totalResult = $conn->query("SELECT FOUND_ROWS() as total");
@@ -50,5 +69,6 @@ if ($result->num_rows > 0) {
 
 echo json_encode(['jobs' => $jobs, 'total' => $total]);
 
+$stmt->close();
 $conn->close();
 ?>
