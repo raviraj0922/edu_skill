@@ -32,134 +32,134 @@
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
     <style>
-        .container-xxl {
-         max-width: 1200px;
-         margin: 0 auto;
-     }
-     
-     h1 {
-         text-align: center;
-         margin-bottom: 20px;
-     }
-     
-     .job-form {
-         display: flex;
-         flex-wrap: wrap;
-     }
-     
-     .form-column, .form-column-full {
-         flex: 1;
-         min-width: 300px;
-         padding: 10px;
-         box-sizing: border-box;
-     }
-     
-     .form-column-full {
-         flex-basis: 100%;
-     }
-     
-     label {
-         display: block;
-         margin-bottom: 5px;
-         font-weight: bold;
-     }
-     
-     input[type="text"],
-     input[type="date"],
-     input[type="url"],
-     input[type="email"],
-     input[type="tel"],
-     input[type="file"],
-     textarea,
-     select {
-         width: 100%;
-         padding: 8px;
-         margin-bottom: 15px;
-         border: 1px solid #ccc;
-         border-radius: 4px;
-     }
-     
-     textarea {
-         height: 100px;
-     }
-     
-     input[type="submit"] {
-         width: 100px;
-         background-color: #007bff;
-         color: white;
-         padding: 10px;
-         border: none;
-         border-radius: 4px;
-         cursor: pointer;
-     }
-     
-     input[type="submit"]:hover {
-         background-color: #0056b3;
-     }
-     
-     #message {
-         text-align: center;
-         margin-top: 20px;
-         font-size: 16px;
-     }
-     
-     .center {
-         text-align: center;
-     }
-     
-     .center label {
-         display: inline-block;
-         margin: 0;
-         font-weight: normal;
-     }
-     
-     /* Media Queries for Responsive Design */
-     
-     /* Small devices (phones, 600px and below) */
-     @media (max-width: 600px) {
-         .job-form {
-             display: block; /* Stack the form elements vertically */
-         }
-         
-         .form-column {
-             width: 100%; /* Make each form column take full width */
-             padding: 10px 0; /* Adjust padding for better spacing */
-         }
-     
-         .form-column-full {
-             width: 100%; /* Make submit button take full width */
-             text-align: center;
-             padding: 10px 0;
-         }
-     }
-     
-     /* Medium devices (tablets, 600px to 768px) */
-     @media (min-width: 601px) and (max-width: 768px) {
-         .form-column {
-             flex: 1 1 50%; /* Make each form column take 50% of the width */
-             padding: 10px; /* Adjust padding for better spacing */
-         }
-     
-         .form-column-full {
-             flex: 1 1 100%; /* Make submit button take full width */
-             text-align: center;
-             padding: 10px 0;
-         }
-     }
-     
-     /* Large devices (desktops, 769px and up) */
-     @media (min-width: 769px) {
-         .form-column {
-             flex: 1; /* Keep columns equal width */
-             padding: 10px;
-         }
-     
-         .form-column-full {
-             flex: 1 1 100%; /* Make submit button take full width */
-             text-align: center;
-             padding: 10px 0;
-         }
-     }
+   .container-xxl {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.job-form {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.form-column, .form-column-full {
+    flex: 1;
+    min-width: 300px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.form-column-full {
+    flex-basis: 100%;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="url"],
+input[type="email"],
+input[type="tel"],
+input[type="file"],
+textarea,
+select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+textarea {
+    height: 100px;
+}
+
+input[type="submit"] {
+    width: 100px;
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+#message {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 16px;
+}
+
+.center {
+    text-align: center;
+}
+
+.center label {
+    display: inline-block;
+    margin: 0;
+    font-weight: normal;
+}
+
+/* Media Queries for Responsive Design */
+
+/* Small devices (phones, 600px and below) */
+@media (max-width: 600px) {
+    .job-form {
+        display: block; /* Stack the form elements vertically */
+    }
+    
+    .form-column {
+        width: 100%; /* Make each form column take full width */
+        padding: 10px 0; /* Adjust padding for better spacing */
+    }
+
+    .form-column-full {
+        width: 100%; /* Make submit button take full width */
+        text-align: center;
+        padding: 10px 0;
+    }
+}
+
+/* Medium devices (tablets, 600px to 768px) */
+@media (min-width: 601px) and (max-width: 768px) {
+    .form-column {
+        flex: 1 1 50%; /* Make each form column take 50% of the width */
+        padding: 10px; /* Adjust padding for better spacing */
+    }
+
+    .form-column-full {
+        flex: 1 1 100%; /* Make submit button take full width */
+        text-align: center;
+        padding: 10px 0;
+    }
+}
+
+/* Large devices (desktops, 769px and up) */
+@media (min-width: 769px) {
+    .form-column {
+        flex: 1; /* Keep columns equal width */
+        padding: 10px;
+    }
+
+    .form-column-full {
+        flex: 1 1 100%; /* Make submit button take full width */
+        text-align: center;
+        padding: 10px 0;
+    }
+}
     </style>
 
 </head>
@@ -230,14 +230,14 @@
                     </div>
                 </div>
                 <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Career</a>
+                    <a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown">Career</a>
                     <div class="dropdown-menu fade-up m-0">
                         <a href="r-career.html" class="dropdown-item">R-Career</a>
-                        <a href="onboard.html" class="dropdown-item">Onboard</a>
+                        <a href="onboard.html" class="dropdown-item active">Onboard</a>
                     </div>
                 </div>
                 <a href="explore.html" class="nav-item nav-link">Explore</a>
-                <a href="registration.html" class="nav-item nav-link active">Apply Now</a>
+                <a href="registration.html" class="nav-item nav-link">Apply Now</a>
             </div>
             <a href="partner.html" class="btn btn-primary py-4 px-lg-3 d-none d-lg-block">Partner With Us<i class="fa fa-arrow-right ms-3"></i></a>
         </div>
@@ -246,99 +246,118 @@
 
 
     <!-- Page Header Start -->
-    <div class="container-fluid page-header py-5 mb-5">
+    <div class="container-fluid onboard-header py-5 mb-5">
         <div class="container py-5">
-            <h1 class="display-3 text-white mb-3 animated slideInDown">Registration</h1>
+            <h1 class="display-3 text-white mb-3 animated slideInDown">Onboarding</h1>
             <nav aria-label="breadcrumb animated slideInDown">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a class="text-white" href="index.html">Home</a></li>
-                    <li class="breadcrumb-item text-white active" aria-current="page">Registration</li>
+                    <li class="breadcrumb-item text-white active" aria-current="page">Onboarding</li>
                 </ol>
             </nav>
         </div>
     </div>
     <!-- Page Header End -->
 
-    <!-- Quote Start -->
+
+    <!-- Form Start -->
     <div class="container-xxl py-5">
         <div class="container">
             <div class="section-title text-center">
-            <h1 class="display-8 mb-5">Candidate Registration Form</h1>
+            <h1 class="display-8 mb-3">Onboarding Form</h1>
             </div>
-            <form action="forms/candidates.php" method="POST" enctype="multipart/form-data" class="job-form" onsubmit="handleSubmit(event)">
+
+            <div class="container text-center">
+                <div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <h5>Important Instructions for Qualified Candidate:</h5>
+                        <p class="mb-4">Only selected applicants who passed the Samarth pre-assessment, certification exam, and face-to-face interview should complete this form. Collecting information and documentation for the selected company's onboarding is essential. We ask that you read and agree our <a href="data-protection.html">data privacy policy</a> before submitting your information.</p>
+                    </div>
+                </div>
+            </div>
+
+            <form action="forms/onboard-form.php" method="POST" enctype="multipart/form-data" class="job-form" onsubmit="handleSubmit(event)">
                 <div class="form-column">
-                    <label for="title">First Name:</label>
-                    <input type="text" id="fname" name="fname" required><br>
-
-                    <label for="company">last Name:</label>
-                    <input type="text" id="lname" name="lname" required><br>
-
-                    <label for="phone">Phone:</label>
-                    <input type="tel" id="phone" name="phone" required><br>
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required><br>
 
                     <label for="email">Email:</label>
                     <input type="email" id="email" name="email" required><br>
 
-                    <label for="gender">Gender:</label>
-                    <input type="radio" id="male" name="gender" value="male" required> Male &nbsp;
-                     <input type="radio" id="female" name="gender" value="female" required> Female &nbsp;
-                     <input type="radio" id="transgender" name="gender" value="transgender" required> Transgender<br><br>
+                    <label for="phone">Phone:</label>
+                    <input type="tel" id="phone" name="phone" required><br>
 
                     <label for="dob">Bate of Birth:</label>
                     <input type="date" id="dob" name="dob" required><br>
 
+                    <label for="address">Current Address, State, Pin:</label>
+                    <textarea id="address" name="address" required></textarea><br>
+
                     <label for="education">Education:</label>
                     <select id="education" name="education" required>
-                        <option value="" disabled selected>Select Education</option>
-                        <option value="graduation">Graduation</option>
-                        <option value="postgraduation">Post Graduation</option>
-                        <option value="diploma">Diploma</option>
-                        <option value="10thpass">10th Pass</option>
-                        <option value="12thpass">12th Pass</option>
-                        <option value="others">Others</option>
-                    </select>
-
+                        <option value="">Select Education</option>
+                            <option value="graduation">Graduation</option>
+                            <option value="postgraduation">Post Graduation</option>
+                            <option value="diploma">Diploma</option>
+                            <option value="10thpass">10th Pass</option>
+                            <option value="12thpass">12th Pass</option>
+                            <option value="other">Other</option>
+                        </select>
+                    
+                    <label for="typeof">Type of Employment</label>
+                        <select id="typeof" name="typeof" required>
+                            <option value="">Select form dropdown</option>
+                            <option value="fulltime">Full Time</option>
+                            <option value="parttime">Part Time</option>
+                        </select>
                 </div>
+
                 <div class="form-column">
-                    <label for="experience">Experience:</label>
-                    <select id="experience" name="experience" required>
-                        <option value="" disabled selected>Select Experience</option>
-                        <option value="fresher">Fresher</option>
-                        <option value="<1"> < 1 years</option>
-                        <option value="1-2">1-2 years</option>
-                        <option value="2+">2+ years</option>
-                    </select><br><br>
+                    <label for="position">Position:</label>
+                        <select id="position" name="position" required>
+                            <option value="">Select Positions</option>
+                            <option value="trainee">Trainee Apprentice</option>
+                            <option value="csa">CSA</option>
+                            <option value="picker">Picker and Packer</option>
+                            <option value="senior">Senior Manager</option>
+                            <option value="store">Store Manager</option>                            
+                            <option value="other">Other</option>
+                        </select>
 
-                    <label for="industry">Industry:</label>
-                    <select id="industry" name="industry" required>
-                        <option value="" disabled selected>Select Industry</option>
-                        <option value="retail">Retail</option>
-                        <option value="e-commerce">E Commerce</option>
-                        <option value="banking">Banking & Finance</option>
-                        <option value="it">IT/ ITes, BPO</option>
-                        <option value="hospitality">Hospitality</option>
-                        <option value="Healthcare">Healthcare</option>
-                        <option value="education">Education</option>
-                        <option value="ed-tech">Ed-tech</option>
-                        <option value="media">Media & Entertainment</option>
-                        <option value="telecom">Telecom</option>
-                        <option value="pharam">Pharma</option>
-                        <option value="logistic">Logistic</option>
-                        <option value="aviation">Aviation</option>
-                        <option value="automobile">Automobile</option>
-                        
-                    </select><br><br>
+                    <label for="trade">Trade:</label>
+                        <select id="trade" name="trade" required>
+                            <option value="">Select Trade</option>
+                            <option value="grocery">Grocery</option>
+                            <option value="fashion">Fashion and Lifestyle</option>
+                            <option value="jewel">Jewels</option>
+                            <option value="beauty">Beauty and Wellness</option>
+                            <option value="toy">Toys</option>                            
+                            <option value="hospitality">Hospitality</option>
+                            <option value="digital">Digital</option>
+                            <option value="horeca">Horeca</option>
+                            <option value="telecom">Telecom</option>                            
+                            <option value="product">Product Business Group</option>
+                        </select>
 
-                    <label for="address">Current Address (with District & State):</label>
-                    <textarea id="address" name="address" required></textarea><br><br>
+                    <label for="resume">Resume:</label>
+                    <input type="file" id="resume" name="resume" required><br>
 
-                    <label for="pin">Pin Code:</label>
-                    <input type="tel" id="pin" name="pin" required><br><br>
+                    <label for="certificate">Samarth Certificate:</label>
+                    <input type="file" id="certificate" name="certificate" required><br>
 
-                    <label for="captureFace">Upload Resume:</label>
-                    <input type="file" id="resume" name="resume" required>
+                    <label for="transcript">Last Education Transcript:</label>
+                    <input type="file" id="transcript" name="transcript" required><br>
+
+                    <label for="pan">PAN Card:</label>
+                    <input type="file" id="pan" name="pan" required><br>
+
+                    <label for="aadhar">Aadhar Card:</label>
+                    <input type="file" id="aadhar" name="aadhar" required><br>
+
+                    <label for="photo">Recent Pasport Size Photo:</label>
+                    <input type="file" id="photo" name="photo" required><br>
                 </div>
-                    <div class="container text-center">
+                <div class="container text-center">
                 <div class="row justify-content-center">
                     <div class="col-lg-10">
                     <label>
@@ -360,21 +379,21 @@
     <script>
         async function handleSubmit(event) {
         event.preventDefault();
-
+        
         const messageDiv = document.getElementById('message');
         messageDiv.textContent = 'Submitting...';
         messageDiv.style.color = 'blue';
-
+        
         const form = event.target;
         const formData = new FormData(form);
-
+        
         const response = await fetch(form.action, {
             method: form.method,
             body: formData
         });
-
+        
         const result = await response.json();
-
+        
         if (result.message) {
             messageDiv.textContent = result.message;
             messageDiv.style.color = 'green';
@@ -384,8 +403,8 @@
         }
     }
     </script>
-    
-    <!-- Quote End -->        
+    <!-- Form End -->
+        
 
 <!-- Footer Start -->
 <div class="container-fluid bg-dark text-light footer mt-5 pt-5 wow fadeIn" data-wow-delay="0.1s">
