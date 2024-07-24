@@ -55,8 +55,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $mail->isSMTP();
                 $mail->Host = 'mail.retailcareer.org'; // Set the SMTP server to send through
                 $mail->SMTPAuth = true;
-                $mail->Username = 'contact@retailcareer.org'; // SMTP username
-                $mail->Password = 'Retail@2024'; // SMTP password
+                $mail->Username = ''; // SMTP username
+                $mail->Password = ''; // SMTP password
                 $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
                 $mail->Port = 587;
 
