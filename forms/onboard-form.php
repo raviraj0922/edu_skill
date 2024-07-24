@@ -2,9 +2,9 @@
 header('Content-Type: application/json');
 
 $servername = "localhost";
-$username = "career-retail";
-$password = "Retail.June@2024";
-$dbname = "retail_career";
+$username = "";
+$password = "";
+$dbname = "";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -43,8 +43,8 @@ function sendEmail($to, $subject, $body, $attachments = []) {
         $mail->isSMTP();
         $mail->Host = 'mail.retailcareer.org'; // Specify your SMTP server
         $mail->SMTPAuth = true;
-        $mail->Username = 'contact@retailcareer.org'; // Your SMTP username
-        $mail->Password = 'Retail@2024'; // Your SMTP password
+        $mail->Username = ''; // Your SMTP username
+        $mail->Password = ''; // Your SMTP password
         $mail->SMTPSecure = PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_STARTTLS;
         $mail->Port = 587;
 
